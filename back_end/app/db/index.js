@@ -12,7 +12,7 @@ module.exports = async () => {
       .catch((err) => console.log(err.message));
     // CHecking for Database connection
     Mongoose.connection.on('connected', () => {
-      console.log('Mongoosed connected to Database');
+      console.log('Mongoose connected to Database');
     });
 
     // Catching errors
