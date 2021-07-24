@@ -3,7 +3,7 @@ const app = express();
 const Port = process.env.port || 3000;
 const databaseConnection = require('./app/db');
 const ourApp = require('./app');
-// Database Cconnection
+// Database Connection
 databaseConnection();
 
 app.use(express.json());
