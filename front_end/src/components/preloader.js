@@ -1,4 +1,4 @@
-import '../app.css'
+import '../homepage.css'
 import React from 'react'
 import { Background } from '../styling'
 

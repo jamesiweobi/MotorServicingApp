@@ -1,4 +1,4 @@
-import "../app.css";
+import "../homepage.css";
 import React from "react";
 import image1 from "../images/carlogo.jpeg";
 import image2 from "../images/carfix3.png";
