@@ -1,9 +1,12 @@
 
+import Preloader from './components/preloader.js'
+import Homepage from './components/homepage.js'
+
 function App() {
-  return (
-    <div >
-      <h2> MOTOR SERVICING APP</h2>
-    </div>
+  return (<>
+   {/* <Preloader /> */}
+   <Homepage />
+   </>
   );
 }
 
