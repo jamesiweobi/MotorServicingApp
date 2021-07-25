@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
-import './Navbar.css';
+import './css/Navbar.css';
 import Dropdown from './Dropdown';
 
 function Navbar() {
@@ -75,15 +75,25 @@ const onMouseLeave = () => {
                 Contact Us
             </Link>
             </li>
-            <li>
+            <li className='nav-item'>
             <Link
-                to='/sign-up'
-                className='nav-links-mobile'
+                to ='/get-quote'
+                className='nav-links'
                 onClick={closeMobileMenu}
             >
                 Get A Quote
             </Link>
             </li>
+
+            {/* <li className='nav-links-mobile'>
+            <Link
+                to ='/login'
+                onClick={closeMobileMenu}
+            >
+                Login
+            </Link>
+            </li> */}
+
         </ul>
         <Button />
     </nav>

@@ -94,6 +94,13 @@
     display: table;
     }
 
+    .nav-login {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
     .nav-links:hover {
     background-color: #1888ff;
     border-radius: 0;
@@ -122,16 +129,10 @@
     }
 
     .nav-links-mobile {
-    display: block;
-    text-align: center;
-    padding: 1.5rem;
-    margin: 2rem auto;
-    border-radius: 4px;
-    width: 80%;
-    background: #1888ff;
-    text-decoration: none;
-    color: #fff;
-    font-size: 1.5rem;
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
     }
 
     .nav-links-mobile:hover {
