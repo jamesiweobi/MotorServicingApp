@@ -3,6 +3,7 @@
     position: absolute;
     top: 60px;
     list-style: none;
+    z-index: 1;
     text-align: start;
 
 }
