@@ -11,6 +11,7 @@ import {
   faCar
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import Cards from '../Card/Cards'
 
 const Homepage = () => {
   return (
@@ -21,6 +22,7 @@ const Homepage = () => {
       <SectionTitle text1='How' text2='We Work'/>
       <HowWeWork />
       <SectionTitle text1='Services' text2='We Provide'/>
+      <Cards />
       <SectionTitle text1='We Look ' text2='After All Brands'/>
       <Brands />
     </div>
@@ -179,6 +181,8 @@ const HowWeWork = () => {
       </Section>
   );
 };
+
+
 
 const Brands = () => {
   return (
