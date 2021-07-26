@@ -7,7 +7,7 @@ export default function AboutUs() {
         <>
         <Navbar />
         <h3>About us</h3>
-        {/* <Footer /> */}
+        <Footer />
         </>
     )
 }

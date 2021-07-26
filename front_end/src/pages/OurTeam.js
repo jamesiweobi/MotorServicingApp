@@ -6,8 +6,8 @@ export default function OurTeam() {
     return (
         <>
         <Navbar />
-        <h3>Our team</h3>
-         {/* <Footer /> */}
+         <h3>Our team</h3>
+         <Footer />
 
         </>
     )

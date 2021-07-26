@@ -13,6 +13,7 @@
 .entryCard>h2,h1{
     font-weight: 500;
     margin-bottom: 50px;
+    color: white;
 }
 
 .entryCard>span{

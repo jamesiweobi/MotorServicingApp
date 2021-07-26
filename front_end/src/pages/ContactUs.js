@@ -8,7 +8,7 @@ export default function ContactUs() {
         <>
         <Navbar />
          <h3>Contact us</h3>
-        {/* <Footer /> */}
+        <Footer />
 
         </>
     )

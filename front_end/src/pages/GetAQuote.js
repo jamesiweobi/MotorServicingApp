@@ -7,8 +7,8 @@ export default function GetAQuote() {
     return (
         <>
         <Navbar />
-        <h3>get a Quote</h3>
-        {/* <Footer /> */}
+         <h3>get a Quote</h3>
+        <Footer />
 
         </>
     )

@@ -34,9 +34,6 @@ function Routes() {
             <Route path ="/get-quote">
                 <GetAQuote/>
             </Route>
-            <Route path ="/pricing">
-                <Pricing/>
-            </Route>
             <Route path ="/our-team">
                 <OurTeam/>
             </Route>
