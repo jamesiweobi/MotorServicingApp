@@ -12,8 +12,8 @@ export const MenuItems = [
     },
 
     {
-        title: 'Pricing',
-        path: '/pricing',
+        title: 'Contact us',
+        path: '/contact-us',
         cName: 'dropdown-link'
     },
 
