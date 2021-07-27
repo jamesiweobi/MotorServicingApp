@@ -5,7 +5,7 @@ function CardItem(props) {
     return (
         <>
             <Link className="cards__item__link" to={props.path}>
-                <figure className="cards__item__pic-wrap" data-category={props.label}>
+                <figure className={props.bestValue ? "cards__item__pic-wrap bestValue":"cards__item__pic-wrap "} data-category={props.label}>
                     <img src={props.src} alt="car_pic" className="cards__item__img" />
                 </figure>
                 <div className="cards__item__info">
@@ -18,6 +18,10 @@ function CardItem(props) {
                         {props.text}
                     </h5>
 
+                    <h4 class="plan-price">
+                        <sup class="currency"> $</sup>
+                        <strong>49.99</strong>
+                    </h4>
                     
                 </div>
             </Link>

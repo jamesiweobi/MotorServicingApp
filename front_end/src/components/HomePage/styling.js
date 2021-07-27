@@ -46,7 +46,7 @@ left: 70px;
 `
 
 
-export const HeaderText = styled.h1`
+export const Headertext = styled.h1`
 text-transform: capitalize;
 `
 export const HeaderText2 = styled.h5`

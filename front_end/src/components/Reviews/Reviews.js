@@ -1,41 +1,52 @@
 import React from 'react'
-import './Reviews.css'
+import './css/Reviews.css'
 
 function Reviews() {
 
     
     return (
         <div className='reviews'>
-            <h2>Client's Love</h2>
             <div className="reviews__item__info">
-            <i class="fas fa-quote-left"></i>
-                <p>My Range Rover needed an oil change and they hooked it up</p>
-                <h5>Yemisi</h5>
-            <i class="fas fa-quote-right"></i>
+                <h5>Yemisi</h5> 
+                <span>Team Leader, Motorify</span>
+                <br/>    
+                <br/>                     
+                <i class="fas fa-quote-left"></i>
+                <p>Car repair just got a whole lot more exciting</p>
             </div>
             <div className="reviews__item__info">
-            <i class="fas fa-quote-left"></i>
-                <p>I needed the to amp the performance of my BMW</p>
-                <h5>Abdullah</h5>
-            <i class="fas fa-quote-right"></i>
+                <h5>Tobi</h5> 
+                <span>Customer</span>
+                <br/>    
+                <br/>                        
+                <i class="fas fa-quote-left"></i>
+                <p>Amzazing service. 5 stars rating for me</p>
             </div>
             <div className="reviews__item__info">
-            <i class="fas fa-quote-left"></i>
-                <p>My AMG Mercedes needed some Anti-Lock brakes </p>
-                <h5>James</h5>
-            <i class="fas fa-quote-right"></i>
+                <h5>James</h5> 
+                <span>Director, James International</span>
+                <br/>    
+                <br/>                       
+                <i class="fas fa-quote-left"></i>
+                <p>Beautiful Service. 10/10 👍🏽</p>
             </div>
             <div className="reviews__item__info">
-            <i class="fas fa-quote-left"></i>
-                <p>I needed some diagnostics to be done on my Audi</p>
-                <h5>Midred</h5>
-            <i class="fas fa-quote-right"></i>
+                <h5>YT</h5> 
+                <span>Customer</span>
+                <br/>    
+                <br/>                        
+                <i class="fas fa-quote-left"></i>
+                <p>Thanks for amping up the performance of my BMW, Motorify</p>
             </div>
             <div className="reviews__item__info">
-            <i class="fas fa-quote-left"></i>
-                <p>My Lexus has been acting up, finally got it fixed</p>
-                <h5>TY</h5>
-            <i class="fas fa-quote-right"></i>
+                <h5>Abdullah Shehu</h5> 
+                <span>CEO, Google </span>
+                <br/>    
+                <br/>                       
+                <i class="fas fa-quote-left"></i>
+                <p>
+                    Brilliant service! Much cheaper than my local garage and without the nightmare of having to drop a car
+                </p>
             </div>
             
         </div>

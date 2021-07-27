@@ -100,4 +100,12 @@ background-color:#2750a4;}
 } */
 .HeaderWord{
     margin: 35px 0;
+    color: white;
+}
+.HeaderText{
+    text-transform: capitalize;
+    text-align: left;
+}
+#homeHeader{
+    text-align: center;
 }
