@@ -32,13 +32,14 @@ const signup = async (req, res) => {
         error: 'Failed to create new User',
         message: error.details[0].message,
       });
-    } else {
-      await newUser.save();
-      return res.status(400).json({
+    }
+      
+    await newUser.save();
+      
+    return res.status(200).json({
         message: 'Created new User',
         user: newUser,
       });
-    }
   } catch (error) {
     throw error;
   }
