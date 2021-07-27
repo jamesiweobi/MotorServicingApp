@@ -1,20 +1,12 @@
 import React from 'react';
-import './App.css';
-import Navbar from './components/Navbar';
-import { BrowserRouter  as Router, Switch, Link} from 'react-router-dom';
-
-import Preloader from './components/preloader.js'
-import Homepage from './components/homepage.js'
+import './App.css'
+import Routes from './Routes';
 import { BrowserRouter  as Router} from 'react-router-dom';
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Switch>
-        {/* <Preloader /> */}
-      <Homepage />
-      </Switch>
+      <Routes />
     </Router>
   );
 }
