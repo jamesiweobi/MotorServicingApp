@@ -6,13 +6,6 @@ const Login = () => {
     return (
         <div>
             <LoginComponent />
-            {/* <h1>Login page</h1>
-            <span>
-                Don't have an account?
-                <Link to='/sign-up'>Sign-up</Link>    
-            </span>
-            <br/>*/}
-            
         </div>
     )
 }

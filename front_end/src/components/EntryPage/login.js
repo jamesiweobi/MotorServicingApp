@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
 
+
+  
     const [loginInfo, setLoginInfo] = useState({
         email: '',
         password: ''
@@ -26,6 +28,10 @@ const Login = () => {
         })
       
     }
+      function validateForm() {
+        return email.length > 0 && password.length > 0;
+    }
+
     // const dispatch = useDispatch()
 
     const submitLogin = (e) =>{
@@ -35,7 +41,6 @@ const Login = () => {
         email: '',
         password: ''})
     }
-
 
     return (
         <EntryPage>
@@ -55,11 +60,14 @@ const Login = () => {
 
                     <InputGroup>  
                         <label>Password</label>
+
+                    
                         <Input name='password' value={loginInfo.password} onChange={handleInput} autoComplete='off' type="password" placeholder="Enter password" id="login-password" />
                     </InputGroup>
                       
                     
-                    <Button type="submit"onClick={submitLogin} >Login</Button>
+                    <Button type="submit"onClick={submitLogin} disabled={!validateForm()}>Login</Button>
+
                    
                 </form>
                 <span>
