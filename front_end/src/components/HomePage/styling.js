@@ -53,8 +53,9 @@ export const HeaderText2 = styled.h5`
 margin: 35px 0;
 `
 
-export const SlideControl = styled.div`
+export const SlideControl = styled.button`
 position: absolute;
+border-style: none;
 top: 320px;
 left: 45px;
 padding: 15px;
@@ -77,8 +78,9 @@ text-align:center;
 `
 
 
-export const SlideControl2 = styled.div`
+export const SlideControl2 = styled.button`
 position: absolute;
+border-style: none;
 top: 320px;
 right: 45px;
 background-color:black;
@@ -235,6 +237,7 @@ height:450px;
 `
 export const DivCenter = styled.div`
 text-align:center;
+margin-bottom: 60px;
 `
 
 export const Title = styled.div`
