@@ -24,12 +24,12 @@ const Login = () => {
         setLoginInfo(inputDetails =>{
            return { ...inputDetails,
                    [name]: value
-                  }
+            }
         })
       
     }
       function validateForm() {
-        return email.length > 0 && password.length > 0;
+        return loginInfo.email.length > 0 && loginInfo.password.length > 0;
     }
 
     // const dispatch = useDispatch()
