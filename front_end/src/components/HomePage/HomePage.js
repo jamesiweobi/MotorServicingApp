@@ -2,7 +2,7 @@ import "./css/homepage.css";
 import React from "react";
 import image1 from "../images/carlogo.jpeg";
 import image2 from "../images/carfix3.png";
-import { Background3, HeaderText, SlideControl, SlideControl2, HeaderText2, HeaderTextContainer, Action1,  Section, FlexItem1,FlexItem3, FlexItem2, Action2, Action3, Icon, Title, TextStyle, TextStyle2, BrandImage, DivCenter} from "./styling";
+import { Background3, Headertext ,SlideControl, SlideControl2, HeaderTextContainer, Action1,  Section, FlexItem1,FlexItem3, FlexItem2, Action2, Action3, Icon, Title, TextStyle, TextStyle2, BrandImage, DivCenter} from "./styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -11,7 +11,8 @@ import {
   faCar
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import Cards from '../Card/Cards'
+import Cards from '../ServiceCard/Cards';
+import HeaderWord from "./HeaderWord";
 
 const Homepage = () => {
   return (
@@ -34,17 +35,9 @@ const HeroSection = () => {
     <>
       <Background3>
         <HeaderTextContainer>
-          <HeaderText>
-            {" "}
-            <h1>
-              providing a professional <br /> &amp; reliable service
-            </h1>
-          </HeaderText>
-          <HeaderText2>
-            {" "}
-            We'll take your car to the best independent garages, hand picked for
-            you.{" "}
-          </HeaderText2>
+          <Headertext> providing a professional <br/> &amp; reliable service</Headertext>
+          <HeaderWord text=" We'll take your car to the best independent garages, hand picked for
+            you."/>
           <ActionButton />
         </HeaderTextContainer>
         <SlideControl>
