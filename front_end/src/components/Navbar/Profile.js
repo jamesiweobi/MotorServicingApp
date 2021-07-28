@@ -48,6 +48,7 @@ const profileItems =[
     {
         title: 'Logout',
         cName: 'profile-link',
+        path: "/login",
         icon: <i className='fa fa-sign-out icons'/> 
 
     },
