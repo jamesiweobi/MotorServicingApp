@@ -38,10 +38,11 @@ h6{
     font-size: 16px;
     font-weight: 700;
 }
-p{
+.textColor{
     font-family:"Dosis", sans-serif;
     font-size: 20px;
     color:#CEDCF5;
+    font-weight: 500;
 }
 
 @media (max-width: 1200px) {

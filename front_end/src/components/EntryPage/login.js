@@ -1,13 +1,42 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Button from './Button'
 import Card from './Card'
 import Input from './Input'    
 import InputGroup from './InputGroup'
 import { EntryPage, PageHeader } from './entryPage'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+// import {useDispatch} from 'react-redux'
 // import './css/entryPage.css'
 
-const login = () => {
+const Login = () => {
+
+    const [loginInfo, setLoginInfo] = useState({
+        email: '',
+        password: ''
+    })
+    
+    const handleInput = (e) =>{
+        const {name, value} = e.target
+
+        setLoginInfo(inputDetails =>{
+           return { ...inputDetails,
+                   [name]: value
+                  }
+        })
+      
+    }
+    // const dispatch = useDispatch()
+
+    const submitLogin = (e) =>{
+        e.preventDefault()
+        console.log(loginInfo)
+        setLoginInfo({
+        email: '',
+        password: ''})
+    }
+
+
     return (
         <EntryPage>
             <PageHeader to="/"> 
@@ -16,19 +45,21 @@ const login = () => {
             </PageHeader>
             <Card>
                 <h1>Login</h1>
-                <form onSubmit ={(e)=> e.preventDefault()}>
+
+
+                <form >
                     <InputGroup>  
                         <label >Email address</label>
-                        <Input type="email" placeholder="Enter email" id="login-email" />
+                        <Input name='email' value={loginInfo.email} onChange={handleInput} autoComplete='off' type="email" placeholder="Enter email" id="login-email" />
                     </InputGroup>
 
                     <InputGroup>  
                         <label>Password</label>
-                        <Input type="password" placeholder="Enter password" id="login-password" />
+                        <Input name='password' value={loginInfo.password} onChange={handleInput} autoComplete='off' type="password" placeholder="Enter password" id="login-password" />
                     </InputGroup>
                       
                     
-                    <Button type="submit" >Login</Button>
+                    <Button type="submit"onClick={submitLogin} >Login</Button>
                    
                 </form>
                 <span>
@@ -41,4 +72,4 @@ const login = () => {
     )
 }
 
-export default login
+export default Login
