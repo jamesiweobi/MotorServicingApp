@@ -40,10 +40,11 @@ h6{
     font-size: 16px;
     font-weight: 700;
 }
-p{
+.textColor{
     font-family:"Dosis", sans-serif;
     font-size: 20px;
     color:#CEDCF5;
+    font-weight: 500;
 }
 
 @media (max-width: 1200px) {
@@ -81,9 +82,16 @@ background-color:#2750a4;}
 
 .textStyle{
     color:#66686b;
+    font-family: "Dosis", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
 }
 .textStyle2{
     color:#2750a4;
+    font-family: "Dosis", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 22px 0;
 }
 .sectionpadding{
     padding: 150px 5% 10px;

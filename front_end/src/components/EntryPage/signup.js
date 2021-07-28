@@ -12,6 +12,33 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [inputType, setInputType] = useState('password');
     
+    const[signupInfo, setSignupInfo] = useState({
+        firstName : '',
+        lastName : '',
+        email : '',
+        password : '',
+        repeatPassword : ''
+    });
+   const handleInput = (e) =>{
+    const {name, value} = e.target
+
+    setSignupInfo(inputDetails =>{
+       return { ...inputDetails,
+               [name]: value
+              }
+    })
+   }
+   const submitLogin = (e) =>{
+    e.preventDefault()
+    console.log(signupInfo)
+    setSignupInfo({
+        firstName : '',
+        lastName : '',
+        email : '',
+        password : '',
+        repeatPassword : ''
+    })
+}
     return (
         <EntryPage>
         <PageHeader to="/"> 
@@ -20,25 +47,25 @@ const Signup = () => {
         </PageHeader>
         <Card>
             <h1>Sign up</h1>
-            <form onSubmit ={(e)=> e.preventDefault()}>
+            <form onSubmit ={submitLogin}>
                 <InputGroup>  
                     <label>First Name</label>
-                    <Input type="text" placeholder="First Name" id="signup-firstname" />
+                    <Input name='firstName'  value={signupInfo.firstName} onChange= {handleInput}  autoComplete='off' type="text" placeholder="First Name" id="signup-firstname" />
                 </InputGroup>
 
                 <InputGroup>  
                     <label>Last Name</label>
-                    <Input type="text" placeholder="Last Name" id="signup-lastname" />
+                    <Input name='lastName'  value={signupInfo.lastName} onChange= {handleInput} autoComplete='off' type="text" placeholder="Last Name" id="signup-lastname" />
                 </InputGroup>
 
                 <InputGroup>  
                     <label>Email Address</label>
-                    <Input type="email" placeholder="Enter email" id="signup-email" />
+                    <Input name='email'  value={signupInfo.email} onChange= {handleInput} autoComplete='off' type="email" placeholder="Enter email" id="signup-email" />
                 </InputGroup>
                   
                 <InputGroup>  
                     <div className="label-eye-wrapper">
-                        <label>Password</label>
+                        <label name='password'  value={signupInfo.password} onChange= {handleInput} autoComplete='off'>Password</label>
                         {inputType === "password" 
                             ? 
                             <AiOutlineEye onClick={() => setInputType('text')} />
@@ -47,13 +74,14 @@ const Signup = () => {
                         }
                     </div>
                    
-                    <Input 
-                        type={inputType} placeholder="Enter password" id="signup-password" 
-                        value = {password}
-                        onChange = {(e)=>setPassword(e.target.value)}
-                    />
+                    <Input name='password'  value={signupInfo.password} onChange= {handleInput} autoComplete='off'
+                        type={inputType} placeholder="Enter password" id="signup-password" />
                 </InputGroup>
-                
+                <InputGroup>  
+                    <label>Confirm Password</label>
+                    <Input name='repeatPassword'  value={signupInfo.repeatPassword} onChange= {handleInput} autoComplete='off'
+                    type="password" placeholder="Confirm email" id="signup-confirmPassword" />
+                </InputGroup>
                 <Button type="submit">Sign Up</Button>
                
             </form>

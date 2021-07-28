@@ -2,7 +2,7 @@ import "./css/homepage.css";
 import React from "react";
 import image1 from "../images/carlogo.jpeg";
 import image2 from "../images/carfix3.png";
-import { Background3, Headertext ,SlideControl, SlideControl2, HeaderTextContainer, Action1,  Section, FlexItem1,FlexItem3, FlexItem2, Action2, Action3, Icon, Title, TextStyle, TextStyle2, BrandImage, DivCenter} from "./styling";
+import { Background3, HeaderText,  HeaderText2 ,SlideControl, SlideControl2, HeaderTextContainer, Action1,  Section, FlexItem1,FlexItem3, FlexItem2, Action2, Action3, Icon, Title, TextStyle, TextStyle2, BrandImage, DivCenter} from "./styling";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
@@ -12,7 +12,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Cards from '../ServiceCard/Cards';
-import HeaderWord from "./HeaderWord";
 
 const Homepage = () => {
   return (
@@ -35,9 +34,18 @@ const HeroSection = () => {
     <>
       <Background3>
         <HeaderTextContainer>
-          <Headertext> providing a professional <br/> &amp; reliable service</Headertext>
-          <HeaderWord text=" We'll take your car to the best independent garages, hand picked for
-            you."/>
+
+          <HeaderText>
+            {" "}
+            <h1>
+              providing a professional <br/> &amp; reliable service
+            </h1>
+          </HeaderText>
+          <HeaderText2>
+            {" "}
+            We'll take your car to the best independent garages, hand picked for
+            you.{" "}
+          </HeaderText2>
           <ActionButton />
         </HeaderTextContainer>
         <SlideControl>
@@ -72,7 +80,9 @@ const ActionButton = () => {
 
 const SectionTitle = ({text1, text2}) => {
   return (
-     <Title>  <h3> <TextStyle className='bold'>{text1}</TextStyle> <TextStyle2> {text2} </TextStyle2> </h3></Title>
+     <Title>  
+       <h3> <TextStyle className='bold'>{text1}</TextStyle> <TextStyle2> {text2} </TextStyle2> </h3>
+      </Title>
   )
 }
 
@@ -84,7 +94,7 @@ const WhyChooseUs = () => {
         <FlexItem1 className='flex1'>
           <FontAwesomeIcon icon={faCar} size="4x" color="white" />
           <h4> Expert Mechanics </h4>
-          <p>
+          <p className='textColor'>
             Most of the vehicles get damaged just because of maintenance neglect you take.
           </p>
           <Action3>
@@ -104,7 +114,7 @@ const WhyChooseUs = () => {
         <FlexItem2 className='flex2'>
         <Icon src={image2} alt="" />
         <h4> Reasonable price </h4>
-          <p>
+          <p className='textColor'>
             Receiving offers through Autobutler guarantees your certainty your car. fixed if the mechanic.
           </p>
             <Action2>
@@ -124,7 +134,7 @@ const WhyChooseUs = () => {
         <FlexItem1 className='flex1'>
         <FontAwesomeIcon icon={faCar} size="4x" color="white" />
         <h4> Fast Feature Delivery </h4>
-          <p>
+          <p className='textColor'>
             If the mechanic discovers other issues with your car while it's in the garage he will call.
           </p>
           <Action3>

@@ -1,34 +1,47 @@
-import React,{ useState } from 'react'
+import React, {useState} from 'react'
 import Button from './Button'
 import Card from './Card'
 import Input from './Input'    
 import InputGroup from './InputGroup'
 import { EntryPage, PageHeader } from './entryPage'
 import { Link } from 'react-router-dom'
+// import axios from 'axios'
+// import {useDispatch} from 'react-redux'
 // import './css/entryPage.css'
 
 const Login = () => {
 
-   
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+
+  
+    const [loginInfo, setLoginInfo] = useState({
+        email: '',
+        password: ''
+    })
     
-    function validateForm() {
+    const handleInput = (e) =>{
+        const {name, value} = e.target
+
+        setLoginInfo(inputDetails =>{
+           return { ...inputDetails,
+                   [name]: value
+                  }
+        })
+      
+    }
+      function validateForm() {
         return email.length > 0 && password.length > 0;
     }
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-      
-        // try {
-        //   await authenticate(email, password);
-        //   alert("Logged in");
-        // } catch (e) {
-        //   alert(e.message);
-        // }
-      }
-    
-    
+    // const dispatch = useDispatch()
+
+    const submitLogin = (e) =>{
+        e.preventDefault()
+        console.log(loginInfo)
+        setLoginInfo({
+        email: '',
+        password: ''})
+    }
+
     return (
         <EntryPage>
             <PageHeader to="/"> 
@@ -37,31 +50,24 @@ const Login = () => {
             </PageHeader>
             <Card>
                 <h1>Login</h1>
-                <form onSubmit ={handleSubmit}>
+
+
+                <form >
                     <InputGroup>  
                         <label >Email address</label>
-                        <Input 
-                            autoFocus
-                            type="email" 
-                            placeholder="Enter email" 
-                            id="login-email" 
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}/>
+                        <Input name='email' value={loginInfo.email} onChange={handleInput} autoComplete='off' type="email" placeholder="Enter email" id="login-email" />
                     </InputGroup>
 
                     <InputGroup>  
                         <label>Password</label>
-                        <Input 
-                            type="password" 
-                            placeholder="Enter password" 
-                            id="login-password" 
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
+
+                    
+                        <Input name='password' value={loginInfo.password} onChange={handleInput} autoComplete='off' type="password" placeholder="Enter password" id="login-password" />
                     </InputGroup>
                       
                     
-                    <Button type="submit" disabled={!validateForm()} >Login</Button>
+                    <Button type="submit"onClick={submitLogin} disabled={!validateForm()}>Login</Button>
+
                    
                 </form>
                 <span>
