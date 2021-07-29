@@ -5,7 +5,6 @@ import Input from './Input'
 import InputGroup from './InputGroup'
 import { EntryPage, PageHeader } from './entryPage'
 import { Link } from 'react-router-dom'
-import axios from 'axios'
 // import {useDispatch} from 'react-redux'
 // import './css/entryPage.css'
 
@@ -15,6 +14,7 @@ const Login = () => {
         email: '',
         password: ''
     })
+    
     
     const handleInput = (e) =>{
         const {name, value} = e.target
@@ -35,7 +35,8 @@ const Login = () => {
         email: '',
         password: ''})
     }
-
+  
+   
 
     return (
         <EntryPage>
