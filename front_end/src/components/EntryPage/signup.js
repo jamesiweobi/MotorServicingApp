@@ -7,10 +7,15 @@ import { EntryPage, PageHeader } from './entryPage'
 import { Link } from 'react-router-dom'
 import './css/entryPage.css'
 import { AiOutlineEye, AiFillEye } from 'react-icons/ai';
+import signupAsync from '../../redux/actions/signupAction.js'
+import { useDispatch } from 'react-redux';
 
 const Signup = () => {
-    const [password, setPassword] = useState('');
+
+    const dispatch = useDispatch()
     const [inputType, setInputType] = useState('password');
+
+    const [error, setError] = useState({})
     
     const[signupInfo, setSignupInfo] = useState({
         firstName : '',
@@ -19,6 +24,7 @@ const Signup = () => {
         password : '',
         repeatPassword : ''
     });
+
    const handleInput = (e) =>{
     const {name, value} = e.target
 
@@ -28,17 +34,40 @@ const Signup = () => {
               }
     })
    }
-   const submitLogin = (e) =>{
-    e.preventDefault()
-    console.log(signupInfo)
-    setSignupInfo({
-        firstName : '',
-        lastName : '',
-        email : '',
-        password : '',
-        repeatPassword : ''
-    })
-}
+
+   const validateConfirmPassword = () =>{
+    if (signupInfo.password === signupInfo.confirmPassword){
+        return {
+            isMatch: true,
+            confirmPassword: 'match'
+        }
+    }   
+    return{
+        isMatch: false,
+        confirmPassword: 'not a match'
+    }
+    }
+
+   const submitLogin = (event) =>{
+    event.preventDefault()
+    event.stopPropagation()
+   
+    // const passwordMatch = validateConfirmPassword()
+    // if(passwordMatch.isMatch === false){
+    //     return setError({
+    //         ...error,
+    //         passwordMatch,
+    //     })
+    // }
+
+         //call signup action
+        console.log(dispatch(signupAsync(signupInfo)))
+        console.log('out')
+ 
+    }
+    
+
+
     return (
         <EntryPage>
         <PageHeader to="/"> 
