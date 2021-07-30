@@ -9,6 +9,7 @@ import OurTeam from './pages/OurTeam'
 import Products from './pages/Products'
 import ServiceAll from './pages/ServiceAll'
 import AboutUs from './pages/AboutUs'
+import NotFound from './components/NotFound/NotFound'
 
 
 
@@ -41,6 +42,9 @@ function Routes() {
             </Route>
             <Route path ="/about-us">
                 <AboutUs/>
+            </Route>
+            <Route>
+                <NotFound />
             </Route>
         </Switch>
     )
