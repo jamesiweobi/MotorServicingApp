@@ -35,14 +35,15 @@ const profileItems =[
     {
         title: 'Manage profile',
         cName: 'profile-link',
+        path: "/profile/manage",
         icon: <i className='fa fa-cog icons'/> 
     },
 
     {
         title: 'My cart',
         cName: 'profile-link',
-        icon: <i className='fa fa-shopping-cart icons'/> 
-
+        icon: <i className='fa fa-shopping-cart icons'/> ,
+        path: "/profile/cart"
     },
 
     {

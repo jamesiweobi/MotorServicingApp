@@ -7,10 +7,10 @@ import ProfileCard from './ProfileCard';
 
 function Navbar() {
 
-const userProf = {
+const [user, isLoggedIn] = useState({
     userName : "Abdullah",
-    isLoggedin : true
-}
+    isLoggedIn : false
+})
 
 const [click, setClick] = useState(false);
 const [dropdown, setDropdown] = useState(false);
@@ -84,7 +84,7 @@ const onMouseLeave = () => {
             </Link>
             </li>
 
-            {!userProf.isLoggedIn && 
+            {user.isLoggedIn && 
                 <>
                     <li className='nav-links-mobile'>
                         <Link
@@ -116,7 +116,7 @@ const onMouseLeave = () => {
                 </> 
             }
 
-            {userProf.isLoggedIn && 
+            {!user.isLoggedIn && 
                 <li className='nav-links-mobile'>
                     <Link
                         to ='/login'
@@ -129,8 +129,7 @@ const onMouseLeave = () => {
             }
         </ul>
 
-        {userProf.isLoggedIn && <Button text="Login"/>}
-        {!userProf.isLoggedIn && <ProfileCard userN={userProf.userName}/> }
+        {user.isLoggedIn === true ? <ProfileCard userN={user.userName}/> : <Button text="Login"/>  }
     </nav>
     </>
 );
