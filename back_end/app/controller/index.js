@@ -20,6 +20,7 @@ const signup = async (req, res) => {
     const { error } = signupValidation(req.body);
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
     const newUser = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -36,6 +37,7 @@ const signup = async (req, res) => {
     } else {
       await newUser.save();
     }
+
     return res.status(200).json({
       message: 'Created new User',
       user: newUser,
