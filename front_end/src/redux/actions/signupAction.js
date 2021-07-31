@@ -7,7 +7,7 @@ const signupRequest = () => ({
     type: USER_REGISTER_REQUEST
 })
 
-const signupSucess = (data) => ({
+const signupSuccess = (data) => ({
     type: USER_REGISTER_SUCCESS,
     payload: data
     
@@ -18,15 +18,15 @@ const signupFailure = (error) => ({
     payload: error
 })
 
+
 const signupAsync = (data) => async (dispatch) => {
     try{
         dispatch(signupRequest())
         const response = await axios.post(`${BASEURL}/signup`, data)
-        dispatch(signupSucess(response.data))
+        localStorage.setItem('id', response.data.user._id)
+        dispatch(signupSuccess(response.data))
 
-    }
-
-    catch(error){
+    }catch(error){
         dispatch(signupFailure(error.response))
     }
 }

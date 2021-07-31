@@ -23,7 +23,7 @@ export  const signupReducer = (state=initialState, action) =>{
          case USER_REGISTER_FAILURE:
          return{
             ...state,
-             isloading:false,
+             isLoading:false,
              error: payload,
          }
          default: return state

@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import Button from './Button'
 import Card from './Card'
 import Input from './Input'    
 import InputGroup from './InputGroup'
 import { EntryPage, PageHeader } from './entryPage'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import './css/entryPage.css'
 import { AiOutlineEye, AiFillEye } from 'react-icons/ai';
 import signupAsync from '../../redux/actions/signupAction.js'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Signup = () => {
 
     const dispatch = useDispatch()
+    const history = useHistory()
+
+    const state = useSelector(state => state.signup)
+    // console.log(state)
+
+    // redirect users to service page after signup
+    useEffect(()=> {
+        if(state){
+            history.push('/services')
+        }
+    }, [state])
+
     const [inputType, setInputType] = useState('password');
 
     const [error, setError] = useState({})
@@ -62,7 +74,14 @@ const Signup = () => {
 
          //call signup action
         console.log(dispatch(signupAsync(signupInfo)))
-        console.log('out')
+        setSignupInfo({
+            firstName : '',
+            lastName : '',
+            email : '',
+            password : '',
+            repeatPassword : ''
+        })
+    
  
     }
     

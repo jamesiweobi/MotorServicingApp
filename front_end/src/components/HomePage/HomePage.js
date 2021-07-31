@@ -78,7 +78,7 @@ const ActionButton = () => {
   );
 };
 
-const SectionTitle = ({text1, text2}) => {
+export const SectionTitle = ({text1, text2}) => {
   return (
      <Title>  
        <h3> <TextStyle className='bold'>{text1}</TextStyle> <TextStyle2> {text2} </TextStyle2> </h3>
