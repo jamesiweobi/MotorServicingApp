@@ -33,6 +33,16 @@ const signup = async (req, res) => {
         message: error.details[0].message,
       });
     }
+
+    const token = await jwt.sign(
+            {user_id: newUser._id, email: newUser.email},
+            process.env.TOKEN_KEY,
+            {
+                expiresIn: "5h",
+            }
+        );
+
+    newUser.token = token;
       
     await newUser.save();
       
@@ -64,7 +74,18 @@ const login = async (req, res) => {
     if (!invalidPassword) {
       res.status(400).json({ message: 'Email or Password wrong' });
     }
-    res.status(200).json({ message: 'logged in!' });
+
+    const token = jwt.sign(
+                {user_id: user._id, email: user.email},
+                process.env.TOKEN_KEY,
+                {
+                    expiresIn: "20min",
+                }
+            );
+
+    user.token = token;
+
+    res.status(200).json({ message: 'logged in!', token });
   } catch (error) {
     throw error;
   }
