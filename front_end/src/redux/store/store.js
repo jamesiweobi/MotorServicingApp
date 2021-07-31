@@ -6,6 +6,20 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 const middleware = [logger, thunk]
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(...middleware)));
+//get user from local storage and save in the store
+
+const userIdFromLocalStorage = localStorage.getItem('id')
+?  localStorage.getItem('id') : null;
+
+const initialState = {
+         signup   : {user_id : userIdFromLocalStorage}
+}
+
+
+const store = createStore(
+    rootReducer, 
+    initialState,
+    composeWithDevTools(applyMiddleware(...middleware))
+    );
 
 export default store;

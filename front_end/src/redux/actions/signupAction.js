@@ -18,10 +18,12 @@ const signupFailure = (error) => ({
     payload: error
 })
 
+
 const signupAsync = (data) => async (dispatch) => {
     try{
         dispatch(signupRequest())
         const response = await axios.post(`${BASEURL}/signup`, data)
+        localStorage.setItem('id', response.data.user._id)
         dispatch(signupSuccess(response.data))
 
     }catch(error){

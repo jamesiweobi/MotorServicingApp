@@ -242,7 +242,7 @@ margin-bottom: 60px;
 
 export const Title = styled.div`
 text-align:center;
-padding : 150px 0 60px;
+padding : 100px 0 20px;
 
 `
 

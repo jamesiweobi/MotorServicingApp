@@ -4,6 +4,7 @@ import HeaderWord from '../HomePage/HeaderWord';
 import Cards from '../ServiceCard/Cards';
 import Reviews from '../Reviews/Reviews';
 import './css/servicePage.css'
+import { SectionTitle } from '../HomePage/HomePage';
 
 const ServicePage = () => {
     return (
@@ -14,9 +15,10 @@ const ServicePage = () => {
                 <HeaderWord text="Choose from our wide range of services"/>
             </div>
         </body> 
-        <h2 className="subHeader">Our Services</h2>
+        <SectionTitle text1='Our' text2='Services'/>
         <Cards />
-        <h2 className="subHeader">Client's Love</h2>
+        <SectionTitle text1='Clients' text2='Love'/>
+    
         <Reviews />
     </>
     )
