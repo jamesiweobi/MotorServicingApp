@@ -28,7 +28,8 @@ const Login = () => {
         })
       
     }
-      function validateForm() {
+    
+    function validateForm() {
         return loginInfo.email.length > 0 && loginInfo.password.length > 0;
     }
 

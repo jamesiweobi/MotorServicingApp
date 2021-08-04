@@ -46,6 +46,10 @@ const Signup = () => {
               }
     })
    }
+   
+    function validateForm() {
+        return signupInfo.email.length > 0 && signupInfo.password.length > 0 && signupInfo.firstName > 0;
+    }
 
    const validateConfirmPassword = () =>{
     if (signupInfo.password === signupInfo.confirmPassword){
@@ -130,7 +134,7 @@ const Signup = () => {
                     <Input name='repeatPassword'  value={signupInfo.repeatPassword} onChange= {handleInput} autoComplete='off'
                     type="password" placeholder="Confirm email" id="signup-confirmPassword" />
                 </InputGroup>
-                <Button type="submit">Sign Up</Button>
+                <Button type="submit" disabled={!validateForm()} >Sign Up</Button>
                
             </form>
             <span>

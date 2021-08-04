@@ -1,13 +1,14 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Footer from '../components/Footer/Footer';
+import QuotePage from '../components/GetQuote/QuotePage';
 
 
 export default function GetAQuote() {
     return (
         <>
         <Navbar />
-         <h3>get a Quote</h3>
+        <QuotePage />
         <Footer />
 
         </>
