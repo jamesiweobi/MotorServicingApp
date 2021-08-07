@@ -29,6 +29,9 @@ const newUserSchema = new Schema({
     min: 6,
     max: 1024,
   },
+  token: {
+    type: String
+  },
   resetLink: {
         data: String,
         default: ''
