@@ -5,13 +5,16 @@ import Input from './Input'
 import InputGroup from './InputGroup'
 import { EntryPage, PageHeader } from './entryPage'
 import { Link } from 'react-router-dom'
-// import {useDispatch} from 'react-redux'
-// import './css/entryPage.css'
+import {useDispatch, useSelector} from 'react-redux'
+import loginAsync from '../../redux/actions/loginAction'
+
 
 const Login = () => {
 
-
-  
+    const dispatch = useDispatch()
+    const [isLoading, setIsLoading] = useState(false)
+    const [errorMessage, setErrorMessage] = useState('')
+    
     const [loginInfo, setLoginInfo] = useState({
         email: '',
         password: ''
@@ -28,18 +31,24 @@ const Login = () => {
         })
       
     }
-      function validateForm() {
+
+    function validateForm() {
         return loginInfo.email.length > 0 && loginInfo.password.length > 0;
     }
 
-    // const dispatch = useDispatch()
+    const state = useSelector(state => state.login)
 
     const submitLogin = (e) =>{
         e.preventDefault()
-        console.log(loginInfo)
-        setLoginInfo({
-        email: '',
-        password: ''})
+       
+        dispatch(loginAsync(loginInfo))
+        setIsLoading(state.isLoading)
+        setErrorMessage(state.error.data.message)
+        // setLoginInfo({
+        // email: '',
+        // password: ''})
+
+       
     }
 
     return (
@@ -64,9 +73,11 @@ const Login = () => {
                     
                         <Input name='password' value={loginInfo.password} onChange={handleInput} autoComplete='off' type="password" placeholder="Enter password" id="login-password" />
                     </InputGroup>
-                      
-                    
+                
+                    {isLoading ? <p className='errorMessage'> Loading...</p> : <p className='errorMessage'> {errorMessage && JSON.stringify(errorMessage)} </p> }
+
                     <Button type="submit"onClick={submitLogin} disabled={!validateForm()}>Login</Button>
+                    {/* <Button type="submit"onClick={submitLogin} >Login</Button> */}
 
                    
                 </form>

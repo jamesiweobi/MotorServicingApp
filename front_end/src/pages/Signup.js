@@ -1,8 +1,13 @@
 import React from 'react'
 import SignupComponennt from '../components/EntryPage/signup'
+
+
+
 const Signup = () => {
+
     return (
         <div>
+          
             <SignupComponennt />
             {/* <h1>Signup page!</h1>
             <span>
