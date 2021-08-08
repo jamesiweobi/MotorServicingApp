@@ -14,6 +14,8 @@ const newUserSchema = new Schema({
   },
   email: {
     type: String,
+    unique: true,
+    lowercase: true,
     required: true,
     min: 6,
   },
@@ -30,12 +32,12 @@ const newUserSchema = new Schema({
     max: 1024,
   },
   token: {
-    type: String
+    type: String,
   },
   resetLink: {
-        data: String,
-        default: ''
-    },
+    data: String,
+    default: '',
+  },
   date: {
     type: Date,
     default: Date.now,
