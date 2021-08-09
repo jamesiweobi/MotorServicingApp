@@ -24,10 +24,6 @@ const ContactForm = () => {
                     <input className='contact-form-input' name='address' autoComplete='off' type="text" placeholder="Your Home Address *" />
                 </div>
 
-                <textarea className='contact-form-additional'rows="5" cols="50" name="comment" placeholder="Additional comments">
-
-                </textarea>
-           
             </form>
         
         </div>

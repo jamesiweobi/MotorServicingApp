@@ -1,34 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const VehicleForm = () => {
+    const [slider, setSlider] = useState(2007);
+    const sliderInput = (e)=> {
+
+        const value  = e.target.value
+    
+        setSlider(value);
+          
+    }
+    
     return (
         <div className="contact-form">
-        <h3>Vehicle Details</h3>
-        <form className='contact-form-labels'>
-            <div>  
-                <label>Full Name</label>
-                <input name='fullName' autoComplete='off' type="text" placeholder="Your fullname"  />
+            <div className="header">
+                Vehicle Details
             </div>
+            <form>
+                <div className='contact-form-labels'>  
+                    <input className='contact-form-input' name='fullName' autoComplete='off' type="text" placeholder="Vehicle Brand *"  />
+                </div>
 
-            <div>  
-                <label>Email Address</label>
-                <input name='email' autoComplete='off' type="email" placeholder="Your email" />
-            </div>
+                <div  className='contact-form-labels'>  
+                    <input className='contact-form-input' name='email' autoComplete='off' type="email" placeholder="Vehicle Make" />
+                </div>
 
-            <div>  
-                <label>Phone</label>
-                <input name='phone-number' autoComplete='off' type="number" placeholder="Your phone" />
-            </div>
-              
-            <div>  
-                <label>Home Address</label>
-                <input name='address' autoComplete='off' type="text" placeholder="Your home Address" />
-            </div>
-       
-        </form>
-    
-    </div>
+                <div class="slider-box">
+                    <input type='range' max='2022' min ='1990' value = {slider} onChange={sliderInput}/>
+                    {slider}
+                    
+                </div>
+                  
+                <textarea className='contact-form-additional'rows="5" cols="50" name="comment" placeholder="Additional comments">
 
+                </textarea>
+           
+               
+
+           
+            </form>
+        
+        </div>
     )
 }
 

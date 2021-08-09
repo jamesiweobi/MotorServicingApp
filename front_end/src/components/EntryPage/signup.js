@@ -19,11 +19,11 @@ const Signup = () => {
     // console.log(state)
 
     // redirect users to service page after signup
-    useEffect(()=> {
-        if(state){
-            history.push('/services')
-        }
-    }, [state])
+    // useEffect(()=> {
+    //     if(state){
+    //         history.push('/services')
+    //     }
+    // }, [state])
 
     const [inputType, setInputType] = useState('password');
 
@@ -48,7 +48,7 @@ const Signup = () => {
    }
    
     function validateForm() {
-        return signupInfo.email.length > 0 && signupInfo.password.length > 0 && signupInfo.firstName > 0;
+        return signupInfo.email.length > 0 && signupInfo.password.length > 0 && signupInfo.firstName.length > 0;
     }
 
    const validateConfirmPassword = () =>{
