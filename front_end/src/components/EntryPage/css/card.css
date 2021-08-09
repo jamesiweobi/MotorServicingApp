@@ -16,11 +16,6 @@
     color: white;
 }
 
-.errorMessage{
-    /* font-weight: 500; */
-    margin-bottom: 30px;
-    color: white;
-}
 .entryCard>span{
     display: block;
     margin-top: 40px;

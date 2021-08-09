@@ -4,10 +4,9 @@ import { Link } from 'react-router-dom';
 import './css/Navbar.css';
 import Dropdown from './Dropdown';
 import ProfileCard from './ProfileCard';
-import ErrorHandler from '../error/errorHandler';
 
-function Navbar(props) {
-  const {errorHandler} = props
+function Navbar() {
+
 const [user, isLoggedIn] = useState({
     userName : "Abdullah",
     isLoggedIn : false
@@ -37,7 +36,6 @@ const onMouseLeave = () => {
 
     return (
     <>
-    <ErrorHandler errorHandler={errorHandler} />
         <nav className='navbar'>
         <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             Motorify

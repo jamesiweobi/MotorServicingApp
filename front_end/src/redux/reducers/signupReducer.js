@@ -3,9 +3,7 @@ import {USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAILURE} fro
 const initialState = {
     data: {},
     isLoading:false,
-    error: {
-        data:{ message: ''}
-    }
+    error: {}
 }
 
 export  const signupReducer = (state=initialState, action) =>{

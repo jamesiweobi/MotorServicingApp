@@ -11,31 +11,13 @@ const middleware = [logger, thunk]
 const userIdFromLocalStorage = localStorage.getItem('id')
 ?  localStorage.getItem('id') : null;
 
-const loginUserIdFromLocalStorage = localStorage.getItem('loginId') 
-? localStorage.getItem('loginId'): null;
-
-
 const initialState = {
-         signup   : { user_id : userIdFromLocalStorage,
-                     data: {},
-                    isLoading:false,
-                    error: {
-                                data:{ message: ''} 
-                            }
-         },
-
-         login    : { user_id : loginUserIdFromLocalStorage,
-            data: {},
-           isLoading:false,
-           error: {
-                       data:{ message: ''} 
-                   }
-},
-        }
+         signup   : {user_id : userIdFromLocalStorage}
+}
 
 
 const store = createStore(
-    rootReducer,
+    rootReducer, 
     initialState,
     composeWithDevTools(applyMiddleware(...middleware))
     );

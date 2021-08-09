@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import Button from './Button'
-import Card2 from './card2'
+import Card from './Card'
 import Input from './Input'    
 import InputGroup from './InputGroup'
 import { EntryPage, PageHeader } from './entryPage'
@@ -10,14 +10,25 @@ import { AiOutlineEye, AiFillEye } from 'react-icons/ai';
 import signupAsync from '../../redux/actions/signupAction.js'
 import { useDispatch, useSelector } from 'react-redux';
 
-
-
 const Signup = () => {
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState('')
+
     const dispatch = useDispatch()
     const history = useHistory()
+
+    const state = useSelector(state => state.signup)
+    // console.log(state)
+
+    // redirect users to service page after signup
+    useEffect(()=> {
+        if(state){
+            history.push('/services')
+        }
+    }, [state])
+
     const [inputType, setInputType] = useState('password');
+
+    const [error, setError] = useState({})
+    
     const[signupInfo, setSignupInfo] = useState({
         firstName : '',
         lastName : '',
@@ -25,17 +36,7 @@ const Signup = () => {
         password : '',
         repeatPassword : ''
     });
-//state.signup.error.data
-    const state = useSelector(state => state.signup)
-   
-    // redirect users to service page after signup
-    // useEffect(()=> {
-    //     if(state){
-    //         history.push('/services')
-    //     }
-    // }, [state])
 
- 
    const handleInput = (e) =>{
     const {name, value} = e.target
 
@@ -46,26 +47,23 @@ const Signup = () => {
     })
    }
 
-//    const validateConfirmPassword = () =>{
-//     if (signupInfo.password === signupInfo.confirmPassword){
-//         return {
-//             isMatch: true,
-//             confirmPassword: 'match'
-//         }
-//     }   
-//     return{
-//         isMatch: false,
-//         confirmPassword: 'not a match'
-//     }
-//     }
+   const validateConfirmPassword = () =>{
+    if (signupInfo.password === signupInfo.confirmPassword){
+        return {
+            isMatch: true,
+            confirmPassword: 'match'
+        }
+    }   
+    return{
+        isMatch: false,
+        confirmPassword: 'not a match'
+    }
+    }
 
    const submitLogin = (event) =>{
     event.preventDefault()
     event.stopPropagation()
    
-
-    setError(state.error.data.message)
-    setIsLoading(state.isLoading)
     // const passwordMatch = validateConfirmPassword()
     // if(passwordMatch.isMatch === false){
     //     return setError({
@@ -75,7 +73,7 @@ const Signup = () => {
     // }
 
          //call signup action
-        dispatch(signupAsync(signupInfo))
+        console.log(dispatch(signupAsync(signupInfo)))
         setSignupInfo({
             firstName : '',
             lastName : '',
@@ -91,13 +89,11 @@ const Signup = () => {
 
     return (
         <EntryPage>
-        {/* <PageHeader to="/"> 
+        <PageHeader to="/"> 
             Motorify
             <i className='fas fa-car' />
-        </PageHeader> */}
-
-        <Card2>
-
+        </PageHeader>
+        <Card>
             <h1>Sign up</h1>
             <form onSubmit ={submitLogin}>
                 <InputGroup>  
@@ -134,10 +130,6 @@ const Signup = () => {
                     <Input name='repeatPassword'  value={signupInfo.repeatPassword} onChange= {handleInput} autoComplete='off'
                     type="password" placeholder="Confirm email" id="signup-confirmPassword" />
                 </InputGroup>
- 
-         {isLoading ? <p className='errorMessage'> Loading...</p>  : <p className='errorMessage'> {error && JSON.stringify(error)} </p> }
-
-           
                 <Button type="submit">Sign Up</Button>
                
             </form>
@@ -146,7 +138,7 @@ const Signup = () => {
                 <Link to='/login'>  Login</Link> 
             </span>
             
-        </Card2>
+        </Card>
     </EntryPage>
     )
 }

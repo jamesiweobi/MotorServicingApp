@@ -3,7 +3,6 @@ import axios from 'axios'
 import {config} from '../../config.js'
 const {BASEURL} = config
 
-
 const signupRequest = () => ({
     type: USER_REGISTER_REQUEST
 })
@@ -20,22 +19,16 @@ const signupFailure = (error) => ({
 })
 
 
-const signupAsync = (data) => async (dispatch, setErrorHandler) => {
+const signupAsync = (data) => async (dispatch) => {
     try{
         dispatch(signupRequest())
         const response = await axios.post(`${BASEURL}/signup`, data)
         localStorage.setItem('id', response.data.user._id)
-        // console.log(`hello $(response.data.user._id)`)
         dispatch(signupSuccess(response.data))
 
     }catch(error){
         dispatch(signupFailure(error.response))
-        
     }
-
-    
 }
 
 export default signupAsync
-        
-    
