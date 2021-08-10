@@ -53,7 +53,7 @@ const signup = async (req, res, next) => {
       },
     });
   } catch (error) {
-    next(new AppError('Failed to create new User', 400));
+    next(new AppError('Fail to create new User', 400));
   }
 };
 
@@ -100,9 +100,7 @@ const forgotPassword = async (req, res, next) => {
 
     User.findOne({ email }, (err, user) => {
       if (err || !user) {
-        return res
-          .status(400)
-          .json({ error: 'User with this email does not exist.' });
+        return next(new AppError('User with this email does not exist.', 400));
       }
 
       const token = jwt.sign(
@@ -146,15 +144,11 @@ const resetPassword = (req, res, next) => {
       process.env.RESET_PASSWORD_KEY,
       function (error, decodedData) {
         if (error) {
-          return res
-            .status(401)
-            .json({ error: 'Incorrect token or it is expired.' });
+          return next(new AppError('Incorrect token or it is expired.', 400));
         }
         User.findOne({ resetLink }, (err, user) => {
           if (err || !user) {
-            return res
-              .status(400)
-              .json({ error: 'User with this token does not exist.' });
+            return next(new AppError('Invalid Reset Token', 400));
           }
 
           //encrypt the reset password
@@ -168,18 +162,18 @@ const resetPassword = (req, res, next) => {
           user = _.extend(user, obj);
           user.save((err, result) => {
             if (err) {
-              return res.status(400).json({ error: 'Reset password error.' });
+              return next(new AppError('Reset password error.', 400));
             } else {
               return res
                 .status(200)
-                .json({ message: 'Your password has been changed' });
+                .json({ message: 'Password Reset Successful' });
             }
           });
         });
       }
     );
   } else {
-    return res.status(401).json({ error: 'Authentication error!!!.' });
+    return next(new AppError('Authentication error!!!.', 401));
   }
 };
 
