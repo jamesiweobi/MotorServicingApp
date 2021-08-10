@@ -61,13 +61,14 @@ const login = async (req, res, next) => {
   try {
     const { error } = await loginValidation(req.body);
     if (error) {
-      return res.status(400).json({
-        message: error.details[0].message,
-      });
+      return next(new AppError(error.details[0].message, 400));
     }
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      return res.status(200).json({ message: 'Email or Password wrong' });
+      return res.status(200).json({
+        status: 'success',
+        message: 'Email or Password wrong',
+      });
     }
 
     const invalidPassword = await bcrypt.compare(
@@ -75,9 +76,8 @@ const login = async (req, res, next) => {
       user.password
     );
     if (!invalidPassword) {
-      res.status(400).json({ message: 'Email or Password wrong' });
+      return next(new AppError('Email or Password wrong', 400));
     }
-
     const token = jwt.sign(
       { user_id: user._id, email: user.email },
       process.env.TOKEN_KEY,
@@ -88,7 +88,7 @@ const login = async (req, res, next) => {
 
     user.token = token;
 
-    res.status(200).json({ message: 'logged in!', token });
+    res.status(200).json({ status: 'success', message: 'logged in!', token });
   } catch (error) {
     throw error;
   }
@@ -127,13 +127,16 @@ const forgotPassword = async (req, res, next) => {
               return next(new AppError('Something went wrong', 400));
             }
             return res.status(200).json({
+              status: 'success',
               message: 'Email has been sent. Kindly follow the instructions',
             });
           });
         }
       });
     });
-  } catch (error) {}
+  } catch (error) {
+    next(error);
+  }
 };
 
 const resetPassword = (req, res, next) => {
@@ -144,15 +147,12 @@ const resetPassword = (req, res, next) => {
       process.env.RESET_PASSWORD_KEY,
       function (error, decodedData) {
         if (error) {
-          return next(new AppError('Incorrect token or it is expired.', 400));
+          return next(new AppError('Incorrect token or it is expired.', 401));
         }
         User.findOne({ resetLink }, (err, user) => {
           if (err || !user) {
             return next(new AppError('Invalid Reset Token', 400));
-          }
-
-          //encrypt the reset password
-          // encryptedUserPassword = bcrypt.hash(newPassword, 10);
+        }
 
           const obj = {
             password: newPassword,
@@ -164,9 +164,10 @@ const resetPassword = (req, res, next) => {
             if (err) {
               return next(new AppError('Reset password error.', 400));
             } else {
-              return res
-                .status(200)
-                .json({ message: 'Password Reset Successful' });
+              return res.status(200).json({ 
+                  status: 'success', 
+                  message: 'Password Reset Successful' 
+                });
             }
           });
         });

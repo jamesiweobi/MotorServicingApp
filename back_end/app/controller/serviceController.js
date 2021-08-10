@@ -1,4 +1,4 @@
-const Service = require('../models/service');
+const Service = require('../models/servicesModel');
 const AppError = require('../helpers/');
 
 exports.getAllServices = async (req, res, next) => {
@@ -9,7 +9,6 @@ exports.getAllServices = async (req, res, next) => {
     } catch (error) {
         console.error(error);
         next(new AppError('Server Error', 500))
-        // res.status(500).json({message: "Server Error"});
     }
 }
 
@@ -21,11 +20,5 @@ exports.getServiceById = async (req, res, next) => {
     } catch (error) {
         console.error(error);
         next(new AppError('Server Error', 500))
-        // res.status(500).json({message: "Server Error"});
     }
 }
-
-// module.exports = {
-//     getAllServices,
-//     getServiceById
-// }
