@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
 });
 router.post('/signup', signup);
 router.post('/login', login);
-router.put('/forgot-password', forgotPassword);
-router.put('/reset-password', resetPassword);
+router.post('/forgot-password', forgotPassword);
+router.patch('/reset-password/:token', resetPassword);
 
 module.exports = {
   router,

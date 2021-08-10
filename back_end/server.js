@@ -3,7 +3,7 @@ const app = express();
 const Port = process.env.port || 3001;
 const databaseConnection = require('./app/db');
 const ourApp = require('./app');
-const AppError = require('./app/helpers/')
+const AppError = require('./app/helpers/errorHandler')
 // Database Connection
 databaseConnection();
 
