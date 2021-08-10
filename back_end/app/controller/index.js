@@ -61,13 +61,14 @@ const login = async (req, res, next) => {
   try {
     const { error } = await loginValidation(req.body);
     if (error) {
-      return res.status(400).json({
-        message: error.details[0].message,
-      });
+      return next(new AppError(error.details[0].message, 400));
     }
     const user = await User.findOne({ email: req.body.email });
     if (!user) {
-      return res.status(200).json({ message: 'Email or Password wrong' });
+      return res.status(200).json({
+        status: 'success',
+        message: 'Email or Password wrong',
+      });
     }
 
     const invalidPassword = await bcrypt.compare(
@@ -75,9 +76,8 @@ const login = async (req, res, next) => {
       user.password
     );
     if (!invalidPassword) {
-      res.status(400).json({ message: 'Email or Password wrong' });
+      return next(new AppError('Email or Password wrong', 400));
     }
-
     const token = jwt.sign(
       { user_id: user._id, email: user.email },
       process.env.TOKEN_KEY,
@@ -88,7 +88,7 @@ const login = async (req, res, next) => {
 
     user.token = token;
 
-    res.status(200).json({ message: 'logged in!', token });
+    res.status(200).json({ status: 'success', message: 'logged in!', token });
   } catch (error) {
     throw error;
   }
@@ -100,9 +100,7 @@ const forgotPassword = async (req, res, next) => {
 
     User.findOne({ email }, (err, user) => {
       if (err || !user) {
-        return res
-          .status(400)
-          .json({ error: 'User with this email does not exist.' });
+        return next(new AppError('User with this email does not exist.', 400));
       }
 
       const token = jwt.sign(
@@ -129,6 +127,7 @@ const forgotPassword = async (req, res, next) => {
               return next(new AppError('Something went wrong', 400));
             }
             return res.status(200).json({
+              status: 'success',
               message: 'Email has been sent. Kindly follow the instructions',
             });
           });
@@ -146,19 +145,14 @@ const resetPassword = (req, res, next) => {
       process.env.RESET_PASSWORD_KEY,
       function (error, decodedData) {
         if (error) {
-          return res
-            .status(401)
-            .json({ error: 'Incorrect token or it is expired.' });
+          return next(new AppError('Incorrect token or it is expired.', 401));
         }
         User.findOne({ resetLink }, (err, user) => {
           if (err || !user) {
-            return res
-              .status(400)
-              .json({ error: 'User with this token does not exist.' });
+            return next(
+              new AppError('User with this token does not exist.', 400)
+            );
           }
-
-          //encrypt the reset password
-          // encryptedUserPassword = bcrypt.hash(newPassword, 10);
 
           const obj = {
             password: newPassword,
@@ -168,18 +162,19 @@ const resetPassword = (req, res, next) => {
           user = _.extend(user, obj);
           user.save((err, result) => {
             if (err) {
-              return res.status(400).json({ error: 'Reset password error.' });
+              return next(new AppError('Reset password error.', 400));
             } else {
-              return res
-                .status(200)
-                .json({ message: 'Your password has been changed' });
+              return res.status(200).json({
+                status: 'success',
+                message: 'Your password has been changed',
+              });
             }
           });
         });
       }
     );
   } else {
-    return res.status(401).json({ error: 'Authentication error!!!.' });
+    return next(new AppError('Authentication error!!!.', 401));
   }
 };
 
