@@ -7,15 +7,12 @@ const url = process.env.URL;
 dotenv.config();
 
 mongoose
-  .connect(
-    'mongodb+srv://jamesiweobi:killbill@cluster0.ysfmd.mongodb.net/Motorify?retryWrites=true&w=majority',
-    {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    }
-  )
+  .connect(url, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
   .then(() => console.log('DB connection successful'));
 
 const services = fs.readFileSync(`${__dirname}/motorServices.json`, 'utf8');
