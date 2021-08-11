@@ -5,27 +5,29 @@ const databaseConnection = require('./app/db');
 const ourApp = require('./app');
 
 const router = require('./app/router/serviceRoutes');
-const AppError = require('./app/helpers/errorHandler')
+const AppError = require('./app/helpers/errorHandler');
 
 // Database Connection
 databaseConnection();
-
 
 app.use(express.json());
 
 app.use('/', ourApp.router);
 app.use('/api/services', router);
 
-app.use((err, req, res, next)=>{
+app.use((req, res, next) => {
+  console.log(req.headers);
+});
+
+app.use((err, req, res, next) => {
   err.statusCode = err.statusCode || 500;
-  err.status = err.status ||'error';
+  err.status = err.status || 'error';
   res.status(err.statusCode).json({
-    status:err.status,
-    message: err.message
-  })
-})
+    status: err.status,
+    message: err.message,
+  });
+});
 
 app.listen(Port, () => {
   console.log(`Server up, running on Port: ${Port}...`);
 });
-

@@ -13,6 +13,11 @@ const serviceSchema = new mongoose.Schema({
     unique: true,
     trim: true,
   },
+  services_image_url: {
+    type: String,
+    required: [true, 'service must have an image'],
+    trim: true,
+  },
   otherServices: [
     {
       title: {
@@ -27,7 +32,7 @@ const serviceSchema = new mongoose.Schema({
         unique: true,
         trim: true,
       },
-      image: {
+      otherServices_image_url: {
         type: String,
         required: [true, 'service must have an image'],
         trim: true,
@@ -40,4 +45,4 @@ const serviceSchema = new mongoose.Schema({
   ],
 });
 
-module.exports = mongoose.model('Service', serviceSchema);
+module.exports = mongoose.model('Services', serviceSchema);
