@@ -21,6 +21,7 @@
     "lodash": "^4.17.21",
     "mailgun-js": "^0.22.0",
     "mongoose": "^5.13.3",
+    "nodemailer": "^6.6.3",
     "validator": "^13.6.0"
   },
   "devDependencies": {
