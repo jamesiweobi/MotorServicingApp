@@ -2,6 +2,7 @@
   {
     "title": "Performance Upgrade",
     "description": "Boost your car performance and improve fuel economy standards. We offer a wide variety of modification options for your rims and tyres, brakes, intake and exhaust modifications and so on.",
+    "services_image_url": "https://images.unsplash.com/photo-1610410053597-30be1443c9d0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Tire repair and replacement",
@@ -32,6 +33,7 @@
   {
     "title": "Engine Maintenace and Diagnostics",
     "description": "We run comprehensive diagnostic test scans on your car's components like the engine, transmission oil tank and many more. From check engine lights and spark plugs to serpentine belts and radiator hoses, Motorify, can help maintain your engine’s optimal performance, reliability and longevity.",
+    "services_image_url": "https://images.unsplash.com/photo-1504222490345-c075b6008014?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Serpentine belt replacement",
@@ -56,6 +58,7 @@
   {
     "title": "Air Conditioning Evac",
     "description": "Our air conditioning evacuation and recharge are designed to allow periodic maintenance instead of complete ac repairs. We inspect, evacuate and recharge with the appropriate refrigerant according to your vehicle manufacturer's specifications. This ensures that you have an efficient cooling system  ",
+    "services_image_url": "https://images.unsplash.com/photo-1578699514700-143328993e16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Compressor replacement",
@@ -80,6 +83,7 @@
   {
     "title": "Brake inspection and brake replacement services",
     "description": "From brake pads to brake fluid, Motorify provides the services you need to help keep your stopping power responsive and reliable  and, get you back on the road quickly. Our services include a proper visual inspection of your vehicle's brake system and replacement of brake fluids and pads",
+    "services_image_url": "https://images.unsplash.com/photo-1600598882370-68933b528007?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
     "otherServices": [
       {
         "title": "Brake fluid exchange",
@@ -104,6 +108,7 @@
   {
     "title": "Battery Maintenance and Replacement",
     "description": "Whether you need a battery tested, a new battery or the terminals cleaned, motorify offers the battery services you need to help keep your starting charging system running efficiently. Our services include include terminal cleaning, cable replacement, tightening connections, testing, replacement and proper disposal of used battery.",
+    "services_image_url": "https://images.unsplash.com/photo-1625055930842-b9ad84b7facd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Battery Maintainance Services",
@@ -122,6 +127,7 @@
   {
     "title": "Auto Glass and Headlights Services",
     "description": "For your headlight cleaning, windshield repair, treatment and wiper replacement, light bulb inspection and cleaning you can trust motorify to deliver topnotch service to  ensure your view from the driver's seat is clear and well-lit.",
+    "services_image_url": "https://images.unsplash.com/photo-1595412693595-6c2852e16398?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80",
     "otherServices": [
       {
         "title": "Windshield Treatment",
@@ -146,6 +152,7 @@
   {
     "title": "Fluid replacement and exchange services",
     "description": "Motorify fluid services helps maintain your vheicle's performance in areas such as brakes, transmission, radiator coolant and more.",
+    "services_image_url": "https://images.unsplash.com/photo-1599256872237-5dcc0fbe9668?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Fluid Top Off",
@@ -170,6 +177,7 @@
   {
     "title": "Vehicle Filter Services",
     "description": "Whether filtering a fluid or the air, Motorify filter services help ensure optimal performance and vehicle longevity",
+    "services_image_url": "https://images.unsplash.com/photo-1599474151975-1f978922fa02?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Cabin Air Filter Replacement",
@@ -200,6 +208,7 @@
   {
     "title": "Tyre rotation, Installation and Replacement",
     "description": "Whatever your tyre needs, rotating, balancing, repair or even rplacement Motorify tyre services will back on the road fast",
+    "services_image_url": "https://images.unsplash.com/photo-1613214149922-f1809c99b414?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Tyre Installation",
@@ -230,6 +239,7 @@
   {
     "title": "Vehicle Inspection and Diagnostics",
     "description": "We offer car quick and convenient inspections and testing services for your new or preowned vehicles.We offer the services you need to help ensure your vehicle meets local emissions and safety requirements",
+    "services_image_url": "https://images.unsplash.com/photo-1581091215367-9b6c00b3035a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80",
     "otherServices": [
       {
         "title": "Vehicle Emission Testing",
