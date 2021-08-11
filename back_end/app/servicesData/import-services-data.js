@@ -1,18 +1,21 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const fs = require('fs');
-const Service = require('../models/servicesModel');
+const Services = require('../models/servicesModel');
 const url = process.env.URL;
 // const url = "mongodb://localhost:27017/motorservice";
 dotenv.config();
 
 mongoose
-  .connect(url, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
+  .connect(
+    'mongodb+srv://jamesiweobi:killbill@cluster0.ysfmd.mongodb.net/Motorify?retryWrites=true&w=majority',
+    {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
   .then(() => console.log('DB connection successful'));
 
 const services = fs.readFileSync(`${__dirname}/motorServices.json`, 'utf8');
@@ -20,7 +23,7 @@ const services = fs.readFileSync(`${__dirname}/motorServices.json`, 'utf8');
 // Import data into the database
 const importData = async () => {
   try {
-    await Service.create(JSON.parse(services));
+    await Services.create(JSON.parse(services));
     console.log('Data successfully imported');
   } catch (error) {
     console.log(error);
@@ -31,7 +34,7 @@ const importData = async () => {
 // delete all data in the database
 const deleteData = async () => {
   try {
-    await Service.deleteMany();
+    await Services.deleteMany();
     console.log('Deleted data successfully');
   } catch (error) {
     console.log(error);
