@@ -58,7 +58,7 @@ const signup = async (req, res, next) => {
       },
     });
   } catch (error) {
-    next(new AppError('Fail to create new User', 400));
+    next(new AppError('Failed to create new User', 400));
   }
 };
 
@@ -114,49 +114,6 @@ const forgotPassword = async (req, res, next) => {
       subject: 'your password rest token (valid for 10mins)',
       message,
     });
-
-  } catch (error) {
-    next(error);
-  }
-};
-
-const resetPassword = (req, res, next) => {
-  const { resetLink, newPassword } = req.body;
-  if (resetLink) {
-    jwt.verify(
-      resetLink,
-      process.env.RESET_PASSWORD_KEY,
-      function (error, decodedData) {
-        if (error) {
-          return next(new AppError('Incorrect token or it is expired.', 401));
-        }
-        User.findOne({ resetLink }, (err, user) => {
-          if (err || !user) {
-            return next(new AppError('Invalid Reset Token', 400));
-        }
-
-          const obj = {
-            password: newPassword,
-            resetLink: '',
-          };
-
-          user = _.extend(user, obj);
-          user.save((err, result) => {
-            if (err) {
-              return next(new AppError('Reset password error.', 400));
-            } else {
-              return res.status(200).json({ 
-                  status: 'success', 
-                  message: 'Password Reset Successful' 
-                });
-            }
-          });
-        });
-      }
-    );
-  } else {
-    return next(new AppError('Authentication error!!!.', 401));
-
     res.status(200).json({
       status: 'success',
       message: 'Token sent to email!',
@@ -182,7 +139,6 @@ const resetPassword = async (req, res, next) => {
   });
   if (!user) {
     return next(new AppError('Token is invalid or has expired!', 400));
-
   }
   user.password = req.body.password;
   user.passwordResetToken = undefined;
