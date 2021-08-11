@@ -49,6 +49,7 @@ const signup = async (req, res, next) => {
     await newUser.save();
     const token = await signToken(newUser._id);
     newUser.token = token;
+    newUser.password = undefined;
     return res.status(200).json({
       status: 'success',
       message: 'Created new User',
@@ -67,7 +68,9 @@ const login = async (req, res, next) => {
     if (error) {
       return next(new AppError(error.details[0].message, 400));
     }
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ email: req.body.email }).select(
+      '+password'
+    );
     if (!user) {
       return res.status(200).json({
         status: 'success',
