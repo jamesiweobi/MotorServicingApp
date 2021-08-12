@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './css/slider.css'
 
 const VehicleForm = () => {
     const [slider, setSlider] = useState(2007);
@@ -24,13 +25,18 @@ const VehicleForm = () => {
                     <input className='contact-form-input' name='email' autoComplete='off' type="email" placeholder="Vehicle Make" />
                 </div>
 
-                <div class="slider-box">
-                    <input type='range' max='2022' min ='1990' value = {slider} onChange={sliderInput}/>
-                    {slider}
-                    
+                <div  className='contact-form-labels'>
+                    <div class="slider-box">
+                        <p className='slider-label'>Vehicle year:</p>
+                        <div className='slider-wrap'>
+                            <input type='range' max='2022' min='1990' value={slider} onChange={sliderInput}/>
+                            <p className='slider-year'> {slider} </p>
+                        </div>
+                        
+                    </div>
                 </div>
-                  
-                <textarea className='contact-form-additional'rows="5" cols="50" name="comment" placeholder="Additional comments">
+
+                <textarea className='vehicle-form-additional'rows="5" cols="50" name="comment" placeholder="Additional comments">
 
                 </textarea>
            
