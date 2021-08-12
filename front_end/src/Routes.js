@@ -10,6 +10,8 @@ import Products from './pages/Products'
 import ServiceAll from './pages/ServiceAll'
 import AboutUs from './pages/AboutUs'
 import NotFound from './components/NotFound/NotFound'
+import Forgotpage from './pages/Forgotpassword'
+
 
 
 
@@ -24,6 +26,9 @@ function Routes() {
             </Route>
             <Route path ="/sign-up">
                 <Signup/>
+            </Route>
+            <Route path ="/forgot-password">
+                <Forgotpage/>
             </Route>
             <Route path ="/products">
                 <Products/>
