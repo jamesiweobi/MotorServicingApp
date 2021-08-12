@@ -43,7 +43,9 @@ const Signup = () => {
     //call signup action
     console.log(dispatch(signupAsync(signupInfo)))
     setLoading(state.isLoading)
+    
     setError(state.error.data.message)
+    console.log(error)
     // setSignupInfo({
     //   firstName: '',
     //   lastName: '',
@@ -151,7 +153,7 @@ const Signup = () => {
               id="signup-confirmPassword"
             /> 
           </InputGroup>
-
+              
           {!loading ? (
             <h2> {error && JSON.stringify(error)} </h2>
           ) : (
