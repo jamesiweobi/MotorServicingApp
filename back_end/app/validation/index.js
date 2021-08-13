@@ -40,16 +40,43 @@ const signupValidation = (newUser) => {
 
 const loginValidation = (data) => {
   const schema = Joi.object({
-    email: Joi.string().min(6).email().required(),
+    email: Joi.string().min(6).email().required().messages({
+      'email.base': `Please enter a valid email`,
+      'email.empty': `Please enter a valid email`,
+      'any.required': `Please enter a valid email`,
+      'string.email': 'Please enter a valid email',
+    }),
     password: Joi.string()
       .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
       .max(1024)
-      .required(),
+      .required()
+      .messages({
+        'email.base': `Please enter a valid email`,
+        'email.empty': `Please enter a valid email`,
+        'any.required': `Please enter a valid email`,
+        'string.email': 'Please enter a valid email',
+      }),
   });
   return schema.validate(data);
 };
-
+const resetPasswordValidator = (data) => {
+  schema = Joi.object({
+    password: Joi.string()
+      .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+      .max(1024)
+      .required()
+      .messages({
+        'email.base': `Please enter a valid email`,
+        'email.empty': `Please enter a valid email`,
+        'any.required': `Please enter a valid email`,
+        'string.email': 'Please enter a valid email',
+      }),
+    repeatPassword: Joi.ref('password'),
+  });
+  return schema.validate(data);
+};
 module.exports = {
   signupValidation,
   loginValidation,
+  resetPasswordValidator,
 };
