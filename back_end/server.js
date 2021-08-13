@@ -4,16 +4,12 @@ const Port = process.env.port || 3001;
 const databaseConnection = require('./app/db');
 const ourApp = require('./app');
 
-// const router = require('./app/router/serviceRoutes');
-const AppError = require('./app/helpers/errorHandler');
-
 // Database Connection
 databaseConnection();
 
 app.use(express.json());
 
 app.use('/', ourApp.router);
-// app.use('/api/services', router);
 
 app.use((req, res, next) => {
   console.log(req.headers);
