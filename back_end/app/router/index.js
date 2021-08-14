@@ -5,14 +5,22 @@ const {
   forgotPassword,
   resetPassword,
 } = require('../controller');
+const authController = require('../controller/authController');
+const {
+  getAllServices,
+  getServiceById,
+} = require('../controller/serviceController');
 
 router.get('/', (req, res) => {
   res.send('welcome to our Motor Servicing App');
 });
 router.post('/signup', signup);
 router.post('/login', login);
-router.put('/forgot-password', forgotPassword);
-router.put('/reset-password', resetPassword);
+router.post('/forgot-password', forgotPassword);
+router.patch('/reset-password/:token', resetPassword);
+
+router.route('/motorify/services/').get(getAllServices);
+router.route('/motorify/services/:id').get(getServiceById);
 
 module.exports = {
   router,
