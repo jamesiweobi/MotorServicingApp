@@ -5,8 +5,6 @@ import Input from './Input';
 import InputGroup from './InputGroup';
 import { EntryPage, PageHeader } from './entryPage';
 import { Link } from 'react-router-dom';
-// import {useDispatch} from 'react-redux'
-// import './css/entryPage.css'
 
 const Login = () => {
   const [loginInfo, setLoginInfo] = useState({
@@ -25,8 +23,6 @@ const Login = () => {
   function validateForm() {
     return loginInfo.email.length > 0 && loginInfo.password.length > 0;
   }
-
-  // const dispatch = useDispatch()
 
   const submitLogin = (e) => {
     e.preventDefault();

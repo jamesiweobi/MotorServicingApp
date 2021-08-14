@@ -1,15 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Datepicker = () => {
-  const [startDate, setStartDate] = useState('');
-  const [time, setTime] = useState('');
-  const handleDate = (e) => {
-    setStartDate(e.target.value);
-  };
-  const handleTime = (e) => {
-    setTime(e.target.value);
-  };
-
+const Datepicker = ({ data, getData }) => {
   const OnFocus = (e) => {
     e.target.type = 'date';
   };
@@ -25,24 +16,24 @@ const Datepicker = () => {
       <div className="contact-form-labels">
         <input
           className="contact-form-input"
-          name="appt-date"
+          name="date"
           autoComplete="off"
           onFocus={OnFocus}
           placeholder="Preffered Date*"
-          value={startDate}
-          onChange={handleDate}
+          value={data.date}
+          onChange={getData}
         />
       </div>
 
       <div className="contact-form-labels">
         <input
           className="contact-form-input"
-          name="appt-time"
+          name="time"
           autoComplete="off"
           onFocus={OnFocusTime}
           placeholder="Preffered Time* "
-          value={time}
-          onChange={handleTime}
+          value={data.time}
+          onChange={getData}
           min="09:00"
           max="18:00"
           required
