@@ -4,7 +4,7 @@ const {
   login,
   forgotPassword,
   resetPassword,
-} = require('../controller');
+} = require('../controller/userController');
 const authController = require('../controller/authController');
 const {
   getAllServices,
