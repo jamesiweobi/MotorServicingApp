@@ -39,7 +39,6 @@ const Forgotpassword = () => {
         dispatch(forgotPasswordAsync(resetInfo))
 
     }
-    added forgot password page, reset password page, email sent page.Added reducer, action and store for the login page, forgot password page and reset password page. Connected login form, forgot password form to the backend.
     useEffect(() => {
           if ((state.data.status === 'success' )) {
             history.push('/email-sent')
