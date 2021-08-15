@@ -24,7 +24,7 @@ const loginAsync = (data) => async (dispatch) => {
         dispatch(loginRequest())
         const response = await axios.post(`${BASEURL}/login`, data)
         dispatch(loginSuccess(response.data))
-        localStorage.setItem('token', response.data.data.user.token)
+        localStorage.setItem('token', response.data.token)
 
     }catch(error){
         dispatch(loginFailure(error.response))

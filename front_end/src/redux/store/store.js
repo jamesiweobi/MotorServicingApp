@@ -8,15 +8,15 @@ const middleware = [logger, thunk];
 
 //get user from local storage and save in the store
 
-const signupTokenFromLocalStorage = localStorage.getItem("token")
+var signupTokenFromLocalStorage = localStorage.getItem("token")
   ? localStorage.getItem("token")
   : null;
 
-const loginTokenFromLocalStorage = localStorage.getItem("token")
+var loginTokenFromLocalStorage = localStorage.getItem("token")
   ? localStorage.getItem("token")
   : null;
 
-const initialState = {
+var initialState = {
   signup: {
     signup_token: signupTokenFromLocalStorage,
     data: {},
@@ -36,6 +36,15 @@ const initialState = {
         message: ""
       }
     }
+  },
+  forgotPassword: {
+      data: {},
+      isLoading:false,
+      error: {
+        data: {
+        status: '',
+        message: ''
+      }}
   }
 };
 

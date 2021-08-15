@@ -13,10 +13,9 @@ import { useDispatch, useSelector } from 'react-redux'
 const Signup = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
 
   const [inputType, setInputType] = useState('password')
+  const [inputType2, setInputType2] = useState('password')
 
   const [signupInfo, setSignupInfo] = useState({
     firstName: '',
@@ -26,8 +25,8 @@ const Signup = () => {
     repeatPassword: '',
   })
 
-  const state = useSelector((state) => state.signup)
-  // console.log(state)
+  const state = useSelector((state) => state.signup || [] )
+  //console.log(state)
 
   const handleInput = (e) => {
     const { name, value } = e.target
@@ -39,13 +38,8 @@ const Signup = () => {
 
   const submitLogin = (event) => {
     event.preventDefault()
-    event.stopPropagation()
     //call signup action
-    console.log(dispatch(signupAsync(signupInfo)))
-    setLoading(state.isLoading)
-    
-    setError(state.error.data.message)
-    console.log(error)
+    dispatch(signupAsync(signupInfo))
     // setSignupInfo({
     //   firstName: '',
     //   lastName: '',
@@ -55,12 +49,12 @@ const Signup = () => {
     // })
   }
 
-  //redirect users to service page after signup
-  // useEffect(() => {
-  //   if (!(state.signup_token === null )) {
-  //     history.push('/services')
-  //   }
-  // }, [state])
+  // redirect users to service page after signup
+  useEffect(() => {
+    if (!(state.signup_token === null )) {
+      history.push('/services')
+    }
+  }, [state])
 
   return (
   <>
@@ -71,7 +65,7 @@ const Signup = () => {
                 </span>
         </div>
       </PageHeader>
-     <div className='flex'>
+     <div className='flex flexWidth'>
       <Card>
         <h3>Sign up</h3>
         <form onSubmit={submitLogin}>
@@ -136,10 +130,10 @@ const Signup = () => {
           <InputGroup>
           <div className="flex3">
           <div className="label-eye-wrapper">
-            {inputType === 'password' ? (
-              <AiOutlineEye onClick={() => setInputType('text')} />
+            {inputType2 === 'password' ? (
+              <AiOutlineEye onClick={() => setInputType2('text')} />
             ) : (
-              <AiFillEye onClick={() => setInputType('password')} />
+              <AiFillEye onClick={() => setInputType2('password')} />
             )}
           </div>
           </div>
@@ -148,16 +142,17 @@ const Signup = () => {
               value={signupInfo.repeatPassword}
               onChange={handleInput}
               autoComplete="off"
-              type="password"
+              type={inputType2}
               placeholder="Confirm password"
               id="signup-confirmPassword"
             /> 
           </InputGroup>
+          
               
-          {!loading ? (
-            <h2> {error && JSON.stringify(error)} </h2>
+          {state.isLoading ? (
+            <h2>Loading... </h2>
           ) : (
-            <h2> Loading...</h2>
+            <h2>{state.error.data.message }  </h2>
           )}
 
           <Button type="submit"> Sign Up </Button>

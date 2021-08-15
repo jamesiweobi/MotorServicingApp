@@ -1,14 +1,19 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from './Button'
 import Card from './Card'
 import Input from './Input'    
 import InputGroup from './InputGroup'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import { PageHeader } from './entryPage'
-// import './css/entryPage.css'
+import forgotPasswordAsync from '../../redux/actions/forgotPasswordAction'
+
 
 const Forgotpassword = () => {
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const state = useSelector(state => state.forgotPassword)
 
     const [resetInfo, setResetInfo] = useState({
         email: ''
@@ -31,9 +36,15 @@ const Forgotpassword = () => {
 
     const submitLogin = (e) =>{
         e.preventDefault()
-        setResetInfo({
-        email: ''})
+        dispatch(forgotPasswordAsync(resetInfo))
+
     }
+    added forgot password page, reset password page, email sent page.Added reducer, action and store for the login page, forgot password page and reset password page. Connected login form, forgot password form to the backend.
+    useEffect(() => {
+          if ((state.data.status === 'success' )) {
+            history.push('/email-sent')
+          }
+        }, [state])
 
     return (
         <>
@@ -46,18 +57,19 @@ const Forgotpassword = () => {
       </PageHeader>
         <div className='flex'>
             <Card>
-                <h3>Reset Password</h3>
+                <h3>Forgot Password</h3>
                 <p> Please enter the e-mail address associated with your Motorify account. We will send you a link to this e-mail address to reset your password. </p>
                 <form >
                     <InputGroup>  
                         <Input name='email' value={resetInfo.email} onChange={handleInput} autoComplete='off' type="email" placeholder="Enter email" id="login-email" />
                     </InputGroup>
+                  { state.error.data.status === 'Failed' ? <h2> {state.error.data.message}</h2> : ''}
 
 
                     <Button type="submit"onClick={submitLogin} disabled={!validateForm()}>Reset Password</Button>
                    
                 </form>
-        
+               
                     <Link to='/login'> Return to Login</Link> 
                
                 

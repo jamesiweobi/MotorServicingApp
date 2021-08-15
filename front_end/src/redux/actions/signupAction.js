@@ -21,7 +21,8 @@ const signupFailure = (error) => ({
 
 const signupAsync = (data) => async (dispatch) => {
     try{
-        dispatch(signupRequest())
+       
+        dispatch(signupRequest()) 
         const response = await axios.post(`${BASEURL}/signup`, data)
         dispatch(signupSuccess(response.data))
         localStorage.setItem('token', response.data.user.token)

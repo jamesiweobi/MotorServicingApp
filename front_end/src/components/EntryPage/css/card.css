@@ -41,6 +41,9 @@ p{
     align-items: center;
     display: flex;
     justify-content: center;
+    height: 80vh;
+}
+.flexWidth{
     height: 100vh;
 }
 .flex3{
