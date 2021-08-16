@@ -9,7 +9,7 @@ function Navbar() {
 
 const [user, isLoggedIn] = useState({
     userName : "Abdullah",
-    isLoggedIn : false
+    isLoggedIn : true
 })
 
 const [click, setClick] = useState(false);
