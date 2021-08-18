@@ -1,30 +1,26 @@
-import {USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAILURE} from '../actions/actionType.js'
+import  {SERVICES_REQUEST, SERVICES_SUCCESS , SERVICES_FAILURE} from '../actions/actionType.js'
 
 const initialState = {
     data: {},
     isLoading:false,
-    error: {
-        data:{
-            message: ''
-        }
-    }
+    error: {}
 }
 
-export  const signupReducer = (state=initialState, action) =>{
+export  const services = (state=initialState, action) =>{
     const {type, payload} = action
     switch (type){
-     case USER_REGISTER_REQUEST:
+     case SERVICES_REQUEST:
      return{
          ...state,
          isLoading: true,
      }
-     case USER_REGISTER_SUCCESS:
+     case SERVICES_SUCCESS:
          return{
              ...state,
              isLoading: false,
              data: payload
          }
-         case USER_REGISTER_FAILURE:
+         case SERVICES_FAILURE:
          return{
             ...state,
              isLoading:false,
