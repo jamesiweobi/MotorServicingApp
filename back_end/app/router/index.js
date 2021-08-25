@@ -23,7 +23,7 @@ router.patch('/reset-password/:token', resetPassword);
 router.route('/motorify/services/').get(getAllServices);
 router.route('/motorify/services/:id').get(getServiceById);
 
-router.route('/motorify/cart').post(cart.creatCart);
+router.route('/motorify/cart').post(cart.creatCart).get(cart.getAllCarts);
 router.route('/motorify/cart/:id').patch(cart.updateCart);
 
 module.exports = {
