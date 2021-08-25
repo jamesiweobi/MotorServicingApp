@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const Port = process.env.port || 3001;
+const Port = process.env.PORT || 3001;
 const databaseConnection = require('./app/db');
 const ourApp = require('./app');
 
@@ -24,6 +24,10 @@ app.use((err, req, res, next) => {
   });
 });
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('front_end/build'))
+
+}
 app.listen(Port, () => {
   console.log(`Server up, running on Port: ${Port}...`);
 });

@@ -50,11 +50,11 @@ const Signup = () => {
   }
 
   // redirect users to service page after signup
-  // useEffect(() => {
-  //   if (!(state.signup_token === null )) {
-  //     history.push('/services')
-  //   }
-  // }, [state])
+  useEffect(() => {
+    if (!(state.signup_token === null )) {
+      history.push('/services')
+    }
+  }, [state])
 
   return (
   <>
