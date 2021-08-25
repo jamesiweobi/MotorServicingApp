@@ -6,8 +6,11 @@ import ServicesForm from './ServicesForm';
 import Checkout from './Checkout';
 import { SectionTitle } from '../HomePage/HomePage';
 import './css/Quote.css';
+import axios from 'axios';
+import { config } from '../../config';
 
 const QuotePage = () => {
+  const { BASEURL } = config;
   const form = {
     fullName: '',
     email: '',
@@ -45,7 +48,16 @@ const QuotePage = () => {
     });
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post(`${BASEURL}/motorify/cart`, formData)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
     console.log(formData);
   };
 
