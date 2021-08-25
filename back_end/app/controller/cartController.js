@@ -32,6 +32,7 @@ exports.updateCart = async (req, res, next) => {
       new: true,
       runValidators: true,
     });
+    if (!updateCart) return next(new AppError('Cart does not exist'));
     return res.status(200).json({
       status: 'success',
       data: {
@@ -40,5 +41,25 @@ exports.updateCart = async (req, res, next) => {
     });
   } catch (error) {
     return next(new AppError('Failed to create cart, please try again.', 500));
+  }
+};
+
+exports.getAllCarts = async (req, res, next) => {
+  try {
+    const carts = await Cart.find({});
+    if (!carts) {
+      return res.status(200).json({
+        status: 'success',
+        message: 'There are no carts available.',
+      });
+    }
+    return res.status(200).json({
+      status: 'success',
+      data: {
+        carts,
+      },
+    });
+  } catch (error) {
+    return next(new AppError('Failed to get all carts', 500));
   }
 };

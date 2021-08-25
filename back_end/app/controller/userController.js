@@ -3,7 +3,7 @@ const {
   resetPasswordValidator,
   loginValidation,
 } = require('../validation');
-const User = require('../models');
+const User = require('../models/userSchema');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
