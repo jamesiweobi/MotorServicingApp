@@ -45,7 +45,13 @@ var initialState = {
         status: '',
         message: ''
       }}
+  },
+  services:{
+    data: {},
+    isLoading:false,
+    error: {}
   }
+
 };
 
 const store = createStore(
