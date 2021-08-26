@@ -6,19 +6,25 @@ import Dropdown from './Dropdown';
 import ProfileCard from './ProfileCard';
 
 function Navbar() {
+  const getUser = () => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    if (token) return token;
+    else return null;
+  };
+
+  // const [user, isLoggedIn] = useState({
+  //   userName: 'Abdullah',
+  //   isLoggedIn: false,
+  // });
+
+  const [click, setClick] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
   const [user, isLoggedIn] = useState({
     userName: 'Abdullah',
     isLoggedIn: false,
   });
 
-  const [click, setClick] = useState(false);
-  const [dropdown, setDropdown] = useState(false);
-const [user, isLoggedIn] = useState({
-    userName : "Abdullah",
-    isLoggedIn : false
-
-
-  const handleClick = () => setClick(!click)
+  const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   const onMouseEnter = () => {

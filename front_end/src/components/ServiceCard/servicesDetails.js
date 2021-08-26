@@ -19,7 +19,7 @@ const ServicesDetails = () => {
   useEffect(() => {
     dispatch(servicesDetailsAsync(id));
  
-  }, []);
+  }, [id]);
 
   return (
     <div className="cards_flexItem">
