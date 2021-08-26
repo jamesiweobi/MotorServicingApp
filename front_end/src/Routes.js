@@ -22,6 +22,7 @@ function Routes() {
             <Route exact path ="/">
                 <Home/>
             </Route>
+           
             <Route path ="/login">
                 <Login/>
             </Route>
@@ -49,9 +50,7 @@ function Routes() {
             <Route path ="/our-team">
                 <OurTeam/>
             </Route>
-            <Route path ="/services">
-                <ServiceAll/>
-            </Route>
+            <Route exact path='/services/:id' component={ServiceAll} />
             <Route path ="/about-us">
                 <AboutUs/>
             </Route>

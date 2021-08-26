@@ -22,7 +22,7 @@ const servicesFailure = (error) => ({
 const servicesAsync = (data) => async (dispatch) => {
     try{
         dispatch(servicesRequest())
-        const response = await axios.post(`${BASEURL}/motorify/services`, data)
+        const response = await axios.get(`${BASEURL}/motorify/services`, data)
         dispatch(servicesSuccess(response.data))
 
     }catch(error){

@@ -19,7 +19,11 @@ var loginTokenFromLocalStorage = localStorage.getItem("token")
 var initialState = {
   signup: {
     signup_token: signupTokenFromLocalStorage,
-    data: {},
+    data: {
+      user:{
+        token: ""
+      }
+    },
     isLoading: false,
     error: {
       data: {
@@ -29,7 +33,9 @@ var initialState = {
   },
   login: {
     login_token: loginTokenFromLocalStorage,
-    data: {},
+    data: {
+      token: ""
+    },
     isLoading: false,
     error: {
       data: {
@@ -47,9 +53,22 @@ var initialState = {
       }}
   },
   services:{
-    data: {},
+    data: {
+      data:{
+      services:[]
+    }},
     isLoading:false,
     error: {}
+  },
+  servicesDetails:{
+    data: {
+      data:{
+      service:{
+        otherServices:[]
+      }
+    }},
+    isLoading: false,
+    error:{}
   }
 
 };

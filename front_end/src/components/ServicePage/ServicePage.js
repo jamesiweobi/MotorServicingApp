@@ -1,10 +1,12 @@
 import React from 'react';
 import HeaderText from '../HomePage/HeaderText';
 import HeaderWord from '../HomePage/HeaderWord';
-import Cards from '../ServiceCard/Cards';
+// import Cards from '../ServiceCard/Cards';
 import Reviews from '../Reviews/Reviews';
 import './css/servicePage.css'
 import { SectionTitle } from '../HomePage/HomePage';
+import Services from '../ServiceCard/servicesDisplay';
+
 
 const ServicePage = () => {
     return (
@@ -16,10 +18,11 @@ const ServicePage = () => {
             </div>
         </body> 
         <SectionTitle text1='Our' text2='Services'/>
-        <Cards />
-        <SectionTitle text1='Clients' text2='Love'/>
+        <Services />
+        {/* <Cards /> */}
+        {/* <SectionTitle text1='Clients' text2='Love'/>
     
-        <Reviews />
+        <Reviews /> */}
     </>
     )
    

@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
 const { isEmail } = require('validator');
+const { serviceSchema } = require('../models/servicesModel');
 
 const emailValidator = function (el) {
   return isEmail(el);
 };
 
+const customEmail = [emailValidator, 'Please enter a correct Email.'];
 const cartSchema = new mongoose.Schema({
   vehicle_details: [
     {
@@ -26,7 +28,7 @@ const cartSchema = new mongoose.Schema({
         type: Number,
         trim: true,
       },
-      service_required: [{ type: Schema.Types.ObjectId, ref: 'Services' }],
+      service_required: [serviceSchema],
     },
   ],
   appointment_date: {
@@ -46,9 +48,7 @@ const cartSchema = new mongoose.Schema({
     customer_email: {
       type: String,
       lowercase: true,
-      validate: {
-        validator: [emailValidator, 'Please enter a correct Email.'],
-      },
+      validate: customEmail,
     },
     customer_phone_number: {
       type: Number,

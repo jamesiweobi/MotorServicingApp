@@ -43,11 +43,11 @@ const Login = () => {
 
   //redirect users to service page after login
 
-  // useEffect(() => {
-  //   if (!(state.login_token === null )) {
-  //     history.push('/services')
-  //   }
-  // }, [state])
+  useEffect(() => {
+    if ((state.data.token !== null )) {
+      history.push('/')
+    }
+  }, [state])
 
   return (
     <>
