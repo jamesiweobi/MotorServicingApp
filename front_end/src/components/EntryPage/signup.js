@@ -55,13 +55,6 @@ const Signup = () => {
     }
   };
 
-  //redirect users to service page after signup
-
-  // useEffect(() => {
-  //   if ((state.data.user.token !== null )) {
-  //     history.push('/')
-  //   }
-  // }, [state])
 
   return (
     <>
@@ -156,11 +149,11 @@ const Signup = () => {
               />
             </InputGroup>
 
-            {/* {state.isLoading ? (
+            {state.isLoading ? (
             <h2>Loading... </h2>
           ) : (
             <h2>{state.error.data.message }  </h2>
-          )} */}
+          )}
 
             <Button type="submit"> Sign Up </Button>
           </form>

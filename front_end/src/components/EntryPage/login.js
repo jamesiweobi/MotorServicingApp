@@ -48,19 +48,12 @@ const Login = () => {
 
   //redirect users to home page after login
 
-<<<<<<< HEAD
-  useEffect(() => {
-    if ((state.data.token !== '' )) {
-      history.push('/')
-    }
-  }, [state])
-=======
+
   // useEffect(() => {
   //   if ((state.data.token !== null )) {
   //     history.push('/')
   //   }
   // }, [state])
->>>>>>> refs/remotes/origin/main
 
   return (
     <>
