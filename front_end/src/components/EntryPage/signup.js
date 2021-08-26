@@ -44,11 +44,11 @@ const Signup = () => {
 
   //redirect users to service page after signup
 
-  useEffect(() => {
-    if ((state.data.user.token !== null )) {
-      history.push('/')
-    }
-  }, [state])
+  // useEffect(() => {
+  //   if ((state.data.user.token !== null )) {
+  //     history.push('/')
+  //   }
+  // }, [state])
 
   return (
   <>

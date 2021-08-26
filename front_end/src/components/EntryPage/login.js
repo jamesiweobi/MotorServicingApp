@@ -41,10 +41,10 @@ const Login = () => {
     });
   };
 
-  //redirect users to service page after login
+  //redirect users to home page after login
 
   useEffect(() => {
-    if ((state.data.token !== null )) {
+    if ((state.data.token !== '' )) {
       history.push('/')
     }
   }, [state])
