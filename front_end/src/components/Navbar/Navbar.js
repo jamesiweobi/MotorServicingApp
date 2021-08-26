@@ -11,19 +11,27 @@ function Navbar() {
     if (token) return token;
     else return null;
   };
-
-  // const [user, isLoggedIn] = useState({
-  //   userName: 'Abdullah',
-  //   isLoggedIn: false,
-  // });
+  const upDateNav = () => {
+    const userActive = getUser();
+    if (userActive) {
+      return {
+        userName: userActive.userName,
+        isLoggedIn: true,
+      };
+    } else {
+      return {
+        userName: '',
+        isLoggedIn: false,
+      };
+    }
+  };
+  const [user, isLoggedIn] = useState({
+    userName: upDateNav().userName,
+    isLoggedIn: upDateNav().isLoggedIn,
+  });
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const [user, isLoggedIn] = useState({
-    userName: 'Abdullah',
-    isLoggedIn: false,
-  });
-
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
@@ -138,7 +146,7 @@ function Navbar() {
           )}
         </ul>
 
-        {user.isLoggedIn === true ? (
+        {user.isLoggedIn ? (
           <ProfileCard userN={user.userName} />
         ) : (
           <Button text="Login" />

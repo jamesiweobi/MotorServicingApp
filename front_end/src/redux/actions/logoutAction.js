@@ -1,15 +1,12 @@
-import {LOG_OUT} from './actionType.js'
+// import { LOG_OUT } from './actionType.js';
 
-const logoutRequest = () => ({
-    type: LOG_OUT
-})
+// // const logoutRequest = () => ({
+// //   type: LOG_OUT,
+// // });
 
+// const logoutFunction = () => {
+//   // dispatch(logoutRequest());
+//   return localStorage.removeItem('token');
+// };
 
-
-const logoutFunction = () => {
-
-        dispatch(logoutRequest())
-        localStorage.setItem('token', "null")
-}
-
-export default logoutFunction
+// export default logoutFunction;
