@@ -13,6 +13,10 @@ function Navbar() {
 
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+const [user, isLoggedIn] = useState({
+    userName : "Abdullah",
+    isLoggedIn : false
+
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);

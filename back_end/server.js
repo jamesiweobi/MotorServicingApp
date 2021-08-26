@@ -5,6 +5,7 @@ const databaseConnection = require("./app/db");
 const ourApp = require("./app");
 const cors = require("cors");
 
+
 // Database Connection
 databaseConnection();
 
@@ -26,6 +27,10 @@ app.use((err, req, res, next) => {
   });
 });
 
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('front_end/build'))
+
+}
 app.listen(Port, () => {
   console.log(`Server up, running on Port: ${Port}...`);
 });
