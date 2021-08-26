@@ -1,3 +1,4 @@
+require('dotenv').config();
 const {
   signupValidation,
   resetPasswordValidator,
@@ -7,12 +8,12 @@ const User = require('../models/userSchema');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const _ = require('lodash');
-const dotenv = require('dotenv');
+
 const mailgun = require('mailgun-js');
 const AppError = require('../helpers/errorHandler');
 const sendEmail = require('../helpers/email');
 const crypto = require('crypto');
-dotenv.config();
+
 
 const DOMAIN = process.env.DOMAIN;
 const mg = mailgun({ apiKey: process.env.MAILGUN_APIKEY, domain: DOMAIN });

@@ -12,9 +12,9 @@ const {
 } = require('../controller/serviceController');
 const cart = require('../controller/cartController');
 
-router.get('/', (req, res) => {
-  res.send('welcome to our Motor Servicing App');
-});
+// router.get('/', (req, res) => {
+//   res.send('welcome to our Motor Servicing App');
+// });
 router.post('/signup', signup);
 router.post('/login', login);
 router.post('/forgot-password', forgotPassword);
