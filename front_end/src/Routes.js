@@ -13,6 +13,7 @@ import NotFound from './components/NotFound/NotFound'
 import Forgotpage from './pages/Forgotpassword'
 import Resetpage from './pages/Resetpassword'
 import Emailpage from './pages/Emailsent'
+import ServicesDetailspage from './pages/servicesDetailpage'
 
 
 
@@ -50,7 +51,8 @@ function Routes() {
             <Route path ="/our-team">
                 <OurTeam/>
             </Route>
-            <Route exact path='/services/:id' component={ServiceAll} />
+            <Route exact path='/services/:id' component={ServicesDetailspage} />
+            <Route exact path='/services' component={ServiceAll} />
             <Route path ="/about-us">
                 <AboutUs/>
             </Route>

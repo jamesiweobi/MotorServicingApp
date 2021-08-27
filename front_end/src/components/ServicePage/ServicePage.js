@@ -19,10 +19,7 @@ const ServicePage = () => {
         </body> 
         <SectionTitle text1='Our' text2='Services'/>
         <Services />
-        {/* <Cards /> */}
-        {/* <SectionTitle text1='Clients' text2='Love'/>
-    
-        <Reviews /> */}
+
     </>
     )
    
