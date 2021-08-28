@@ -3,6 +3,7 @@ import Team from './Team';
 import HeaderWord from '../HomePage/HeaderWord';
 import HeaderText from '../HomePage/HeaderText';
 import './css/teamPage.css'
+import { SectionTitle } from '../HomePage/HomePage';
 
 const TeamPage = () => {
     return (
@@ -13,7 +14,7 @@ const TeamPage = () => {
                 <HeaderWord text="Meet our talented team of Engineers"/>
             </div>
         </body> 
-        <h2 className="subHeader">Our Team</h2>
+        <SectionTitle text1='Our' text2='Team'/>
         <Team />
         
     </>

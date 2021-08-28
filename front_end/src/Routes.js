@@ -10,6 +10,10 @@ import Products from './pages/Products'
 import ServiceAll from './pages/ServiceAll'
 import AboutUs from './pages/AboutUs'
 import NotFound from './components/NotFound/NotFound'
+import Forgotpage from './pages/Forgotpassword'
+import Resetpage from './pages/Resetpassword'
+import Emailpage from './pages/Emailsent'
+import ServicesDetailspage from './pages/servicesDetailpage'
 
 
 
@@ -19,11 +23,21 @@ function Routes() {
             <Route exact path ="/">
                 <Home/>
             </Route>
+           
             <Route path ="/login">
                 <Login/>
             </Route>
             <Route path ="/sign-up">
                 <Signup/>
+            </Route>
+            <Route path ="/forgot-password">
+                <Forgotpage/>
+            </Route>
+            <Route path ="/reset-password">
+                <Resetpage/>
+            </Route>
+            <Route path ="/email-sent">
+                <Emailpage />
             </Route>
             <Route path ="/products">
                 <Products/>
@@ -37,9 +51,8 @@ function Routes() {
             <Route path ="/our-team">
                 <OurTeam/>
             </Route>
-            <Route path ="/services">
-                <ServiceAll/>
-            </Route>
+            <Route exact path='/services/:id' component={ServicesDetailspage} />
+            <Route exact path='/services' component={ServiceAll} />
             <Route path ="/about-us">
                 <AboutUs/>
             </Route>

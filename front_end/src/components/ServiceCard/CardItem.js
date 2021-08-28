@@ -19,8 +19,13 @@ function CardItem(props) {
                     </h5>
 
                     <h4 class="plan-price">
-                        <sup class="currency"> $</sup>
-                        <strong>49.99</strong>
+                        <sup class="currency">{props.currency} </sup>
+                        <strong>{props.price} </strong>
+                    </h4>
+
+                    <h4 class="plan-price">
+                        <sup class="currency"> </sup>
+                        <strong> </strong>
                     </h4>
                     
                 </div>
