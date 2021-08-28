@@ -3,7 +3,11 @@ import {USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS, USER_REGISTER_FAILURE} fro
 const initialState = {
     data: {},
     isLoading:false,
-    error: {}
+    error: {
+        data:{
+            message: ''
+        }
+    }
 }
 
 export  const signupReducer = (state=initialState, action) =>{
@@ -23,7 +27,7 @@ export  const signupReducer = (state=initialState, action) =>{
          case USER_REGISTER_FAILURE:
          return{
             ...state,
-             isloading:false,
+             isLoading:false,
              error: payload,
          }
          default: return state
